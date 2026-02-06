@@ -8,6 +8,7 @@ import Home from "../pages/Home/Home";
 import Meals from "../components/MealsPage/Meals";
 import DashboardLayout from "../layouts/DashboardLayout";
 import AllMealsLayout from "../layouts/AllMealsLayout";
+import PrivateRoute from "./PrivateRoute";
 
 export const router = createBrowserRouter([
   {
@@ -35,16 +36,16 @@ export const router = createBrowserRouter([
     ],
   },
   {
-     path:"/dashboard",
-     element:<DashboardLayout></DashboardLayout>,
-     children:[
-      {
-        
-      }
-     ]
+    path: "/dashboard",
+    element: <DashboardLayout></DashboardLayout>,
+    children: [{}],
   },
   {
-      path:"/meals",
-      element:<AllMealsLayout></AllMealsLayout>
-  }
+    path: "/meals",
+    element: (
+      <PrivateRoute>
+        <AllMealsLayout></AllMealsLayout>
+      </PrivateRoute>
+    ),
+  },
 ]);

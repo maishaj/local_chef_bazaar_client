@@ -4,7 +4,7 @@ import Register from '../components/Register/Register';
 
 const AuthLayout = () => {
     return (
-        <div className='w-11/12 mx-auto'>
+        <div>
             <Outlet></Outlet>
         </div>
     );

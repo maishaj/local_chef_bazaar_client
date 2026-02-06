@@ -6,8 +6,7 @@ const MealsCard = ({meal}) => {
 
     const {_id,chefName,foodImage,foodPrice,foodRating,deliveryArea,foodName}=meal;
     return (
-        <div>
-            <div className="card bg-base-100 w-80 shadow-sm h-[350px]">
+            <div className="card bg-base-100 w-4/5 mx-auto shadow-sm h-[350px]">
                 <figure>
                     <img
                     className='h-[250px] w-full object-cover'
@@ -29,7 +28,6 @@ const MealsCard = ({meal}) => {
                     </div>
                 </div>
             </div>
-        </div>
     );
 };
 

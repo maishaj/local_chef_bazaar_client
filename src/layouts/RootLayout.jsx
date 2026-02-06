@@ -5,6 +5,7 @@ import Footer from '../shared/Footer/Footer';
 import Hero from '../components/Hero/Hero';
 import Meals from '../components/MealsPage/Meals';
 import Reviews from '../components/Reviews/Reviews';
+import Newsletter from '../components/Newsletter/Newsletter';
 
 const RootLayout = () => {
     return (
@@ -13,6 +14,7 @@ const RootLayout = () => {
             <Hero></Hero>
             <Meals></Meals>
             <Reviews></Reviews>
+            <Newsletter></Newsletter>
             <Footer></Footer>
         </div>
     );

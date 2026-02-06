@@ -15,11 +15,13 @@ const Reviews = () => {
     })
 
     return (
-        <div>
+        <div className='w-10/12 mx-auto'>
             <h1 className='text-3xl font-semibold text-center m-10'>What <span className='text-primary'>our diners</span> say</h1>
-            {
-                reviews.map(review=><ReviewsCard review={review} key={review._id}></ReviewsCard>)
-            }
+            <div className='grid grid-cols-1 md:grid-cols-4 lg:grid-cols-4 gap-3'>
+                {
+                 reviews.map(review=><ReviewsCard review={review} key={review._id}></ReviewsCard>)
+                }
+            </div>
         </div>
     );
 };

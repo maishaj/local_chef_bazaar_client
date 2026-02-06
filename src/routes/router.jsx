@@ -7,6 +7,7 @@ import RootLayout from "../layouts/RootLayout";
 import Home from "../pages/Home/Home";
 import Meals from "../components/MealsPage/Meals";
 import DashboardLayout from "../layouts/DashboardLayout";
+import AllMealsLayout from "../layouts/AllMealsLayout";
 
 export const router = createBrowserRouter([
   {
@@ -17,10 +18,6 @@ export const router = createBrowserRouter([
         index: true,
         Component: Home,
       },
-      {
-         path:"/meals",
-         element:<Meals></Meals>
-      }
     ],
   },
   {
@@ -45,5 +42,9 @@ export const router = createBrowserRouter([
         
       }
      ]
+  },
+  {
+      path:"/meals",
+      element:<AllMealsLayout></AllMealsLayout>
   }
 ]);

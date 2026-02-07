@@ -1,6 +1,7 @@
 import React from 'react';
 import star from '../../assets/stars.png';
 import halfStar from '../../assets/halfstar.png';
+import { Link } from 'react-router';
 
 const AllMealsCard = ({meal}) => {
 
@@ -32,7 +33,7 @@ const AllMealsCard = ({meal}) => {
                     <img className='w-3.5 h-4 md:w-6 md:h-6 lg:w-6 lg:h-6' src={halfStar} alt="" />
                 </div>
                 <div className="card-actions justify-end">
-                  <button className="btn btn-primary">Details</button>
+                  <Link to={`/meals/meal-details/${_id}`} className="btn btn-primary">Details</Link>
                 </div>
             </div>
         </div>

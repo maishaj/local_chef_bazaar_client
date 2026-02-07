@@ -1,12 +1,13 @@
 import React from 'react';
 import logoImg from '../../assets/local_chef_bazaar_logo.png'
-import { Link, NavLink } from 'react-router';
+import { Link, NavLink, useNavigate } from 'react-router';
 import useAuth from '../../hooks/useAuth';
 import toast from 'react-hot-toast';
 
 const Navbar = () => {
 
     const {user,logOut}=useAuth();
+    const navigate=useNavigate();
 
     const links=
     <>
@@ -23,6 +24,7 @@ const Navbar = () => {
     const handleLogout=()=>{
         logOut()
         .then((res)=>{
+            navigate("/");
             toast.success("You logged out successfully");
         })
     }

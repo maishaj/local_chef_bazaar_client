@@ -9,6 +9,8 @@ import Meals from "../components/MealsPage/Meals";
 import DashboardLayout from "../layouts/DashboardLayout";
 import AllMealsLayout from "../layouts/AllMealsLayout";
 import PrivateRoute from "./PrivateRoute";
+import MealDetails from "../components/MealDetails/MealDetails";
+import AllMeals from "../components/AllMeals/AllMeals";
 
 export const router = createBrowserRouter([
   {
@@ -21,6 +23,7 @@ export const router = createBrowserRouter([
       },
     ],
   },
+
   {
     path: "/auth",
     element: <AuthLayout></AuthLayout>,
@@ -35,11 +38,15 @@ export const router = createBrowserRouter([
       },
     ],
   },
+
   {
     path: "/dashboard",
     element: <DashboardLayout></DashboardLayout>,
-    children: [{}],
+    children: [{
+
+    }],
   },
+
   {
     path: "/meals",
     element: (
@@ -47,5 +54,15 @@ export const router = createBrowserRouter([
         <AllMealsLayout></AllMealsLayout>
       </PrivateRoute>
     ),
+    children:[
+      {
+        index:true,
+        element:<AllMeals></AllMeals>
+      },
+      {
+      path: "meal-details/:id",
+      element: <MealDetails></MealDetails>
+     }
+    ]
   },
 ]);

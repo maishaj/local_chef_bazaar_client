@@ -12,6 +12,9 @@ import AllMeals from "../components/AllMeals/AllMeals";
 import OrderPage from "../components/OrderPage/OrderPage";
 import DashboardHome from "../pages/DashboardHome/DashboardHome";
 import MyProfile from "../components/UserDashboard/MyProfile";
+import MyOrders from "../components/UserDashboard/MyOrders/MyOrders";
+import MyReviews from "../components/UserDashboard/MyReviews";
+import MyFavourites from "../components/UserDashboard/MyFavourites";
 
 export const router = createBrowserRouter([
   {
@@ -47,6 +50,18 @@ export const router = createBrowserRouter([
         path: "my-profile",
         element:<MyProfile></MyProfile>
       },
+      {
+        path:"my-orders",
+        element:<MyOrders></MyOrders>
+      },
+      {
+        path:"my-reviews",
+        element:<MyReviews></MyReviews>
+      },
+      {
+        path:"my-favourites",
+        element:<MyFavourites></MyFavourites>
+      }
     ],
   },
 
@@ -70,6 +85,9 @@ export const router = createBrowserRouter([
         path: "meal-details/:id/place-order",
         element: <OrderPage></OrderPage>,
       },
+      {
+
+      }
     ],
   },
 ]);

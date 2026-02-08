@@ -5,18 +5,20 @@ import { useParams } from 'react-router';
 import star from '../../assets/stars.png';
 import useAuth from '../../hooks/useAuth'
 import toast from 'react-hot-toast';
+import { useForm } from 'react-hook-form';
 
-const AddReview = () => {
+const AddReview = ({foodName}) => {
 
     const {user}=useAuth();
     const axiosSecure=useAxiosSecure();
     const {id}=useParams();
+    const {reset}=useForm();
 
     const [review,setReview]=useState("");
     const [rating,setRating]=useState(5);
 
 
-    const {refetch,reset,data:reviews=[]}=useQuery({
+    const {refetch,data:reviews=[]}=useQuery({
         queryKey: ['review',id],
         queryFn: async()=>{
            const res=await axiosSecure.get(`/review/${id}`);
@@ -27,7 +29,9 @@ const AddReview = () => {
     const handleReview=()=>{
         const reviewData={
             foodId:id,
+            foodName:foodName,
             reviewerName:user.displayName,
+            reviewerEmail:user.email,
             reviewerImage:user.photoURL,
             rating:rating,
             comment:review,
@@ -37,9 +41,9 @@ const AddReview = () => {
         axiosSecure.post('/reviews',reviewData)
         .then((res)=>{
             refetch();
-            reset();
             setReview("");
             setRating(5);
+            reset();
             toast.success("Thanks for your feedback");
         })
     }

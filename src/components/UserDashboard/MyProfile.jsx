@@ -32,7 +32,6 @@ const MyProfile = () => {
         }
         Swal.fire({
             title: `You want to be an ${requestedRole}?`,
-            text: "The admin will review your request shortly",
             icon: "warning",
             showCancelButton: true,
             confirmButtonText: "Yes"

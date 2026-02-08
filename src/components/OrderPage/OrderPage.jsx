@@ -12,8 +12,7 @@ const OrderPage = () => {
     const axiosSecure=useAxiosSecure();
     const {user}=useAuth();
     const {id}=useParams();
-    const {register,handleSubmit,reset}=useForm();
-    
+   
     const {data:meal=[]}=useQuery({
         queryKey:['meal',id],
         queryFn: async()=>{
@@ -25,12 +24,26 @@ const OrderPage = () => {
     const {_id,chefId,chefName,foodImage,foodPrice,deliveryArea,foodName,ingredients,estimatedDeliveryTime,
     chefsExperience,foodDetails}=meal;
 
+    const {register,handleSubmit,reset}=useForm({
+    values: {
+        meal: foodName,
+        price: foodPrice,
+        chefId: chefId,
+        email: user?.email,
+        orderStatus: "Pending",
+        orderTime: new Date().toLocaleString()
+      }
+    });
+    
+
     const handleOrder=(data)=>{
 
         const orderInfo={
 
            foodId:id,
            mealName:foodName,
+           chefName:chefName,
+           deliveryTime:estimatedDeliveryTime,
            price:foodPrice,
            quantity:data.quantity,
            chefId:data.chefId,
@@ -71,28 +84,28 @@ const OrderPage = () => {
                         <div>
                             <fieldset className="fieldset">
                                 <label className="label">Meal</label>
-                                <input type="text" className="input" {...register("meal")} defaultValue={foodName} readOnly/>
+                                <input type="text" className="input" {...register("meal")}  readOnly/>
 
                                 <label className="label">Price</label>
-                                <input type="text" className="input" {...register("price")} defaultValue={foodPrice} readOnly/>
+                                <input type="text" className="input" {...register("price")}  readOnly/>
 
                                 <label className='label'>Quantity</label>
                                 <input type="text" className="input" {...register("quantity",{required:true})} placeholder="quantity"/>
 
                                 <label className='label'>Chef Id</label>
-                                <input type="text" className="input" {...register("chefId")} defaultValue={chefId} readOnly/>
+                                <input type="text" className="input" {...register("chefId")}  readOnly/>
 
                                 <label className="label">Address</label>
                                 <input type="text" className="input" {...register("address",{required:true})} placeholder="Your address" />
 
                                 <label className="label">Email</label>
-                                <input type="email" className="input" {...register("email",{required:true})} defaultValue={user.email}/>
+                                <input type="email" className="input" {...register("email",{required:true})} />
                             
                                 <label className="label">Order Status</label>
-                                <input type="text" className="input" {...register("orderStatus")} defaultValue={"Pending"} readOnly/>
+                                <input type="text" className="input" {...register("orderStatus")}  readOnly/>
 
                                 <label className="label">Time</label>
-                                <input type="text" className="input" {...register("orderTime",)} defaultValue={new Date().toLocaleString()} readOnly/>
+                                <input type="text" className="input" {...register("orderTime",)}  readOnly/>
                                 
                             <button className="btn btn-neutral mt-4 w-1/4">Place Order</button>
                             </fieldset>

@@ -56,15 +56,15 @@ const DashboardLayout = () => {
                     {
                         role==="user" &&
                         <li>
-                            <Link to="/" className="is-drawer-close:tooltip is-drawer-close:tooltip-right" data-tip="My Orders">
+                            <Link to="/dashboard/my-orders" className="is-drawer-close:tooltip is-drawer-close:tooltip-right" data-tip="My Orders">
                                 <IoBagSharp />
                                 <span className="is-drawer-close:hidden">My Orders</span>
                             </Link>
-                            <Link to="/" className="is-drawer-close:tooltip is-drawer-close:tooltip-right" data-tip="My Reviews">
+                            <Link to="/dashboard/my-reviews" className="is-drawer-close:tooltip is-drawer-close:tooltip-right" data-tip="My Reviews">
                                 <FaComment />
                                 <span className="is-drawer-close:hidden">My Reviews</span>
                             </Link>
-                            <Link to="/" className="is-drawer-close:tooltip is-drawer-close:tooltip-right" data-tip="My Favourites">
+                            <Link to="/dashboard/my-favourites" className="is-drawer-close:tooltip is-drawer-close:tooltip-right" data-tip="My Favourites">
                                 <FaHeart />
                                 <span className="is-drawer-close:hidden">My Favourites</span>
                             </Link>

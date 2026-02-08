@@ -5,10 +5,10 @@ import { Link } from 'react-router';
 
 const AllMealsCard = ({meal}) => {
 
-    const {_id,chefName,foodImage,foodPrice,foodRating,deliveryArea,foodName,ingredients,estimatedDeliveryTime,
+    const {_id,chefId,chefName,foodImage,foodPrice,foodRating,deliveryArea,foodName,ingredients,estimatedDeliveryTime,
     chefsExperience,foodDetails}=meal;
 
-    const chefId=_id.split('c')[0];
+    
 
     return (
         <div className="card bg-base-100 w-full mx-auto shadow-sm h-full">

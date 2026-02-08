@@ -77,7 +77,7 @@ const MealDetails = () => {
                                 Prepared with love by <span className="text-primary font-bold">Chef {chefName}</span>
                             </p>
                             <p className="text-[12px] uppercase tracking-tighter text-gray-400 mt-1">
-                                Chef Identity Code: <span className="font-mono">{_id}</span>
+                                Chef Identity Code: <span className="font-mono">{chefId}</span>
                             </p>
                         </div>
                     </div>
@@ -133,7 +133,7 @@ const MealDetails = () => {
             </div>
         </div>
         <div>
-            <AddReview></AddReview>
+            <AddReview foodName={foodName}></AddReview>
         </div>
         <Outlet></Outlet>
         </div>

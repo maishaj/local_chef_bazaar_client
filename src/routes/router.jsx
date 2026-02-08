@@ -11,6 +11,7 @@ import AllMealsLayout from "../layouts/AllMealsLayout";
 import PrivateRoute from "./PrivateRoute";
 import MealDetails from "../components/MealDetails/MealDetails";
 import AllMeals from "../components/AllMeals/AllMeals";
+import OrderPage from "../components/OrderPage/OrderPage";
 
 export const router = createBrowserRouter([
   {
@@ -60,9 +61,14 @@ export const router = createBrowserRouter([
         element:<AllMeals></AllMeals>
       },
       {
-      path: "meal-details/:id",
-      element: <MealDetails></MealDetails>
-     }
+        path: "meal-details/:id",
+        element: <MealDetails></MealDetails>,
+      },
+      {
+        path:"meal-details/:id/place-order",
+        element:<OrderPage></OrderPage>
+      }
     ]
   },
+
 ]);

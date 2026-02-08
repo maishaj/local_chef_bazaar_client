@@ -1,7 +1,7 @@
 import React from 'react';
 import useAxiosSecure from '../../hooks/useAxiosSecure';
 import { useQuery } from '@tanstack/react-query';
-import { useParams } from 'react-router';
+import { Link, Outlet, useParams } from 'react-router';
 import star from '../../assets/stars.png';
 import halfStar from '../../assets/halfstar.png';
 import AddReview from '../AddReview/AddReview';
@@ -126,7 +126,7 @@ const MealDetails = () => {
                     </div>
 
                     <div className='flex flex-row justify-center md:block lg:block'>
-                        <button className="w-1/3 btn btn-primary btn-lg shadow-lg hover:shadow-primary/30 mr-4">Order Now</button>
+                        <Link to={`/meals/meal-details/${_id}/place-order`} className="w-1/3 btn btn-primary btn-lg shadow-lg hover:shadow-primary/30 mr-4">Order Now</Link>
                         <button onClick={()=>handleFavourites(_id)} className="w-1/3 btn btn-primary btn-lg shadow-lg hover:shadow-primary/30"><FaRegHeart/>Add to Fav</button>
                     </div>
                 </div>
@@ -135,6 +135,7 @@ const MealDetails = () => {
         <div>
             <AddReview></AddReview>
         </div>
+        <Outlet></Outlet>
         </div>
     );
 };

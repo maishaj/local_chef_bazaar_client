@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from "framer-motion";
 import heroImg from '../../assets/heroImg.jpg'
+import { Link } from 'react-router';
 
 const container = {
   hidden: { opacity: 0 },
@@ -37,9 +38,9 @@ const Hero = () => {
           </motion.p>
 
           <motion.div variants={item}>
-            <button className="btn my-btn text-white mr-3">
+            <Link to="/meals" className="btn my-btn text-white mr-3">
               Order Now
-            </button>
+            </Link>
             <button className="btn btn-outline">
               Become a Chef
             </button>

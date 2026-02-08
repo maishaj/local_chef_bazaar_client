@@ -1,8 +1,24 @@
 import React from 'react';
+import useAxiosSecure from '../../../hooks/useAxiosSecure';
 
 const MyOrdersCard = ({order}) => {
 
-    const {mealName,price,quantity,chefId,paymentStatus,chefName,deliveryTime,userEmail,userAddress,orderStatus}=order;
+    const axiosSecure=useAxiosSecure()
+
+    const {mealName,price,quantity,foodId,chefId,paymentStatus,chefName,deliveryTime,userEmail,userAddress,orderStatus}=order;
+
+    const handlePayment=async()=>{
+        const paymentInfo={
+            foodId:foodId,
+            mealName:mealName,
+            price:price,
+            quantity:quantity,
+            userEmail:userEmail
+        }
+        const res=await axiosSecure.post('/create-checkout-session',paymentInfo);
+        window.location.href= res.data.url;
+
+    }
     
     return (
         <div className="card bg-base-100 shadow-xl border border-base-200 hover:shadow-2xl transition-all">
@@ -41,7 +57,7 @@ const MyOrdersCard = ({order}) => {
                         <p className="text-2xl font-bold text-secondary">TK {price * quantity}</p>
                         <div className="card-actions">
                             {paymentStatus === 'Pending' && (
-                                <button className="btn btn-primary btn-sm px-6">Pay</button>
+                                <button onClick={handlePayment} className="btn btn-primary btn-sm px-6">Pay</button>
                             )}
                         </div>
                     </div>

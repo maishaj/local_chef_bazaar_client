@@ -41,28 +41,27 @@ const OrderPage = () => {
            orderTime:data.orderTime
         }
         const totalprice= data.quantity*foodPrice;
-        axiosSecure.post('/order',orderInfo)
-        .then((res)=>{
-            Swal.fire({
+           Swal.fire({
             title: `Your total cost is Tk ${totalprice}`,
             text: "Do you want to confirm the order?",
             icon: "warning",
             showCancelButton: true,
-            confirmButtonColor: "#3085d6",
-            cancelButtonColor: "#d33",
             confirmButtonText: "Yes"
             }).then((result) => {
-            if (result.isConfirmed) {
-                reset();
-                Swal.fire({
-                title: "Placed!",
-                text: "Order placed successfully!",
-                icon: "success"
+                if (result.isConfirmed) {
+                axiosSecure.post('/order', orderInfo)
+                .then((res) => {
+                if (res.data.insertedId) {
+                    axiosSecure.patch(`/users/address/${user?.email}`, {
+                    address: data.address
                 });
+                reset();
+                Swal.fire("Placed!", "Order placed successfully!", "success");
             }
             });
-            })
-        }
+            }
+            });
+        };
 
     return (
         <div className='w-10/12 flex justify-center items-center gap-2 mx-auto'>
@@ -72,16 +71,16 @@ const OrderPage = () => {
                         <div>
                             <fieldset className="fieldset">
                                 <label className="label">Meal</label>
-                                <input type="text" className="input" {...register("meal",{required:true})} defaultValue={foodName} readOnly/>
+                                <input type="text" className="input" {...register("meal")} defaultValue={foodName} readOnly/>
 
                                 <label className="label">Price</label>
-                                <input type="text" className="input" {...register("price",{required:true})} defaultValue={foodPrice} readOnly/>
+                                <input type="text" className="input" {...register("price")} defaultValue={foodPrice} readOnly/>
 
                                 <label className='label'>Quantity</label>
                                 <input type="text" className="input" {...register("quantity",{required:true})} placeholder="quantity"/>
 
                                 <label className='label'>Chef Id</label>
-                                <input type="text" className="input" {...register("chefId",{required:true})} defaultValue={chefId} readOnly/>
+                                <input type="text" className="input" {...register("chefId")} defaultValue={chefId} readOnly/>
 
                                 <label className="label">Address</label>
                                 <input type="text" className="input" {...register("address",{required:true})} placeholder="Your address" />
@@ -90,10 +89,10 @@ const OrderPage = () => {
                                 <input type="email" className="input" {...register("email",{required:true})} defaultValue={user.email}/>
                             
                                 <label className="label">Order Status</label>
-                                <input type="text" className="input" {...register("orderStatus",{required:true})} defaultValue={"Pending"} readOnly/>
+                                <input type="text" className="input" {...register("orderStatus")} defaultValue={"Pending"} readOnly/>
 
                                 <label className="label">Time</label>
-                                <input type="text" className="input" {...register("orderTime",{required:true})} defaultValue={new Date()} readOnly/>
+                                <input type="text" className="input" {...register("orderTime",)} defaultValue={new Date().toLocaleString()} readOnly/>
                                 
                             <button className="btn btn-neutral mt-4 w-1/4">Place Order</button>
                             </fieldset>

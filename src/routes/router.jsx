@@ -4,25 +4,20 @@ import AuthLayout from "../layouts/AuthLayout";
 import Login from "../components/Login/Login";
 import Register from "../components/Register/Register";
 import RootLayout from "../layouts/RootLayout";
-import Home from "../pages/Home/Home";
-import Meals from "../components/MealsPage/Meals";
 import DashboardLayout from "../layouts/DashboardLayout";
 import AllMealsLayout from "../layouts/AllMealsLayout";
 import PrivateRoute from "./PrivateRoute";
 import MealDetails from "../components/MealDetails/MealDetails";
 import AllMeals from "../components/AllMeals/AllMeals";
 import OrderPage from "../components/OrderPage/OrderPage";
+import DashboardHome from "../pages/DashboardHome/DashboardHome";
+import MyProfile from "../components/UserDashboard/MyProfile";
 
 export const router = createBrowserRouter([
   {
     path: "/",
     element: <RootLayout></RootLayout>,
-    children: [
-      {
-        index: true,
-        Component: Home,
-      },
-    ],
+    children: [{}],
   },
 
   {
@@ -43,9 +38,16 @@ export const router = createBrowserRouter([
   {
     path: "/dashboard",
     element: <DashboardLayout></DashboardLayout>,
-    children: [{
-
-    }],
+    children: [
+      {
+        index: true,
+        element: <PrivateRoute><DashboardHome></DashboardHome></PrivateRoute>
+      },
+      {
+        path: "my-profile",
+        element:<MyProfile></MyProfile>
+      },
+    ],
   },
 
   {
@@ -55,20 +57,19 @@ export const router = createBrowserRouter([
         <AllMealsLayout></AllMealsLayout>
       </PrivateRoute>
     ),
-    children:[
+    children: [
       {
-        index:true,
-        element:<AllMeals></AllMeals>
+        index: true,
+        element: <AllMeals></AllMeals>,
       },
       {
         path: "meal-details/:id",
         element: <MealDetails></MealDetails>,
       },
       {
-        path:"meal-details/:id/place-order",
-        element:<OrderPage></OrderPage>
-      }
-    ]
+        path: "meal-details/:id/place-order",
+        element: <OrderPage></OrderPage>,
+      },
+    ],
   },
-
 ]);

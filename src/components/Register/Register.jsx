@@ -1,10 +1,8 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import SocialLogin from '../SocialLogin/SocialLogin';
 import { Link, useNavigate } from 'react-router';
 import useAuth from '../../hooks/useAuth';
 import useAxiosSecure from '../../hooks/useAxiosSecure';
-import { ToastContainer, toast } from 'react-toastify';
 import axios from 'axios';
 
 

@@ -85,7 +85,7 @@ const DashboardLayout = () => {
                                 <GiMeal />
                                 <span className="is-drawer-close:hidden">My Meals</span>
                             </Link>
-                            <Link to="/dashboard/" className="is-drawer-close:tooltip is-drawer-close:tooltip-right" data-tip="Order Requests">
+                            <Link to="/dashboard/order-request" className="is-drawer-close:tooltip is-drawer-close:tooltip-right" data-tip="Order Requests">
                                 <TbTruckDelivery />
                                 <span className="is-drawer-close:hidden">Order Requests</span>
                             </Link>

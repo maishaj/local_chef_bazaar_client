@@ -17,7 +17,8 @@ import MyReviews from "../components/UserDashboard/MyReviews";
 import MyFavourites from "../components/UserDashboard/MyFavourites";
 import PaymentSuccess from "../components/Payment/PaymentSuccess";
 import CreateMeal from "../components/ChefDashboard/CreateMeal";
-import MyMeals from "../components/ChefDashboard/MyMeals";
+import MyMeals from "../components/ChefDashboard/MyMeals/MyMeals";
+import OrderRequests from "../components/ChefDashboard/OrderRequests";
 
 export const router = createBrowserRouter([
   {
@@ -80,6 +81,10 @@ export const router = createBrowserRouter([
       {
         path:"my-meal",
         element:<MyMeals></MyMeals>
+      },
+      {
+        path:"order-request",
+        element:<OrderRequests></OrderRequests>
       }
     ],
   },

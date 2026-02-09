@@ -9,15 +9,15 @@ import axios from 'axios';
 const CreateMeal = () => {
 
     const {user}=useAuth();
+    const axiosSecure=useAxiosSecure();
     const {register,handleSubmit,reset}=useForm({
         values:{
-            email:user.email
+            email:user?.email,
         }
     });
-    const axiosSecure=useAxiosSecure();
 
-    const handleCreateMeal= async(data)=>{
-
+    const handleCreateMeal= (data)=>{
+        const toastId = toast.loading("Adding your meal...");
         //image
         const imageFile=data.image[0];
         const formData=new FormData();
@@ -25,7 +25,7 @@ const CreateMeal = () => {
 
         const img_API_URl=`https://api.imgbb.com/1/upload?key=${import.meta.env.VITE_image_host_key}`;
 
-        const res=await axios.post(img_API_URl,formData);
+        const res=axios.post(img_API_URl,formData);
         const photoURL=res.data.data.url;
 
         //ingredients
@@ -52,7 +52,7 @@ const CreateMeal = () => {
          if(res.data.insertedId)
          {
             reset();
-            toast.success("Your meal is added successfully!");
+            toast.success("Your meal is added successfully!",{id:toastId});
          }
        })
     }
@@ -71,7 +71,7 @@ const CreateMeal = () => {
                                 <input type="text" className="input" {...register("chefName",{required:true})} placeholder='chef name'/>
 
                                 <label className="label">Email</label>
-                                <input type="email" className="input" {...register("email",{required:true})}/>
+                                <input type="email" className="input" {...register("email")}/>
 
                                 <label className="label">Meal Image</label>
                                 <input type="file" className="file-input" {...register("image", { required: true })} placeholder='meal image' />

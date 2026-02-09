@@ -9,7 +9,6 @@ import toast from 'react-hot-toast';
 const MyProfile = () => {
 
     const {user}=useAuth();
-    console.log(user);
     const {role}=useRole();
     const axiosSecure=useAxiosSecure();
 

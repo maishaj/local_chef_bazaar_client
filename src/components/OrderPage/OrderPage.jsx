@@ -21,7 +21,7 @@ const OrderPage = () => {
         }
     })
 
-    const {_id,chefId,chefName,foodImage,foodPrice,deliveryArea,foodName,ingredients,estimatedDeliveryTime,
+    const {_id,chefId,chefEmail,chefName,foodImage,foodPrice,deliveryArea,foodName,ingredients,estimatedDeliveryTime,
     chefsExperience,foodDetails}=meal;
 
     const {register,handleSubmit,reset}=useForm({
@@ -39,7 +39,6 @@ const OrderPage = () => {
     const handleOrder=(data)=>{
 
         const orderInfo={
-
            foodId:id,
            mealName:foodName,
            chefName:chefName,
@@ -48,6 +47,7 @@ const OrderPage = () => {
            quantity:data.quantity,
            chefId:data.chefId,
            paymentStatus:"Pending",
+           chefEmail:chefEmail,
            userEmail:data.email,
            userAddress:data.address,
            orderStatus:data.orderStatus,

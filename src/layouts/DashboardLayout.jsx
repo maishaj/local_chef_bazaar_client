@@ -9,6 +9,9 @@ import useRole from '../hooks/useRole';
 import { IoIosAddCircle } from "react-icons/io";
 import { GiMeal } from "react-icons/gi";
 import { TbTruckDelivery } from "react-icons/tb";
+import { FaUserCog } from "react-icons/fa";
+import { LuMessageSquareQuote } from "react-icons/lu";
+import { FcStatistics } from "react-icons/fc";
 
 
 const DashboardLayout = () => {
@@ -88,6 +91,23 @@ const DashboardLayout = () => {
                             <Link to="/dashboard/order-request" className="is-drawer-close:tooltip is-drawer-close:tooltip-right" data-tip="Order Requests">
                                 <TbTruckDelivery />
                                 <span className="is-drawer-close:hidden">Order Requests</span>
+                            </Link>
+                        </li>
+                    }
+                    {
+                        role==="admin" &&
+                        <li>
+                            <Link to="/dashboard/manage-users" className="is-drawer-close:tooltip is-drawer-close:tooltip-right" data-tip="Manage Users">
+                                <FaUserCog />
+                                <span className="is-drawer-close:hidden">Manage Users</span>
+                            </Link>
+                            <Link to="/dashboard/" className="is-drawer-close:tooltip is-drawer-close:tooltip-right" data-tip="Manage Request">
+                                <LuMessageSquareQuote />
+                                <span className="is-drawer-close:hidden">Manage Request</span>
+                            </Link>
+                            <Link to="/dashboard/" className="is-drawer-close:tooltip is-drawer-close:tooltip-right" data-tip="Platform Statistics">
+                                <FcStatistics />
+                                <span className="is-drawer-close:hidden">Platform Statistics</span>
                             </Link>
                         </li>
                     }

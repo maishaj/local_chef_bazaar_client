@@ -23,6 +23,16 @@ const MealDetails = () => {
         }
     })
 
+    const { data: dbUser } = useQuery({
+    queryKey: ['user-db', user?.email],
+    queryFn: async () => {
+        const res = await axiosSecure.get(`/users/${user.email}`);
+        return res.data;
+    }
+   });
+
+   const isFraud=dbUser?.status==="fraud";
+
     const {_id,chefId,chefName,foodImage,foodPrice,deliveryArea,foodName,ingredients,estimatedDeliveryTime,
     chefsExperience,foodDetails}=meal;
 
@@ -126,7 +136,23 @@ const MealDetails = () => {
                     </div>
 
                     <div className='flex flex-row justify-center md:block lg:block'>
-                        <Link to={`/meals/meal-details/${_id}/place-order`} className="w-1/3 btn btn-primary btn-lg shadow-lg hover:shadow-primary/30 mr-4">Order Now</Link>
+                        {
+                        isFraud ? 
+                        (
+                                <button 
+                                    onClick={() => toast.error("Your account is restricted from placing orders.")}
+                                    className="w-1/3 btn btn-disabled btn-lg mr-4"
+                                >
+                                    Order Now
+                                </button>
+                            ) : (
+                                <Link 
+                                    to={`/meals/meal-details/${_id}/place-order`} 
+                                    className="w-1/3 btn btn-primary btn-lg shadow-lg hover:shadow-primary/30 mr-4"
+                                >
+                                    Order Now
+                                </Link>)
+                        }
                         <button onClick={()=>handleFavourites(_id)} className="w-1/3 btn btn-primary btn-lg shadow-lg hover:shadow-primary/30"><FaRegHeart/>Add to Fav</button>
                     </div>
                 </div>

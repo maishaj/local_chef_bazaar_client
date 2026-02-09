@@ -5,6 +5,7 @@ import createmealImg from '../../assets/createmealsImg.jpg';
 import useAxiosSecure from '../../hooks/useAxiosSecure';
 import toast from 'react-hot-toast';
 import axios from 'axios';
+import { useQuery } from '@tanstack/react-query';
 
 const CreateMeal = () => {
 
@@ -15,6 +16,16 @@ const CreateMeal = () => {
             email:user?.email,
         }
     });
+
+    const { data: dbUser } = useQuery({
+    queryKey: ['user-db', user?.email],
+    queryFn: async () => {
+        const res = await axiosSecure.get(`/users/${user.email}`);
+        return res.data;
+    }
+   });
+
+   const isFraud=dbUser?.status==="fraud";
 
     const handleCreateMeal= (data)=>{
         const toastId = toast.loading("Adding your meal...");
@@ -43,6 +54,7 @@ const CreateMeal = () => {
            estimatedDeliveryTime:data.deliveryTime,
            chefsExperience:data.experience,
            foodDetails:data.details,
+           chefEmail:user.email,
            userEmail:user.email,
            createdAt:new Date().toLocaleString()
        }
@@ -96,8 +108,14 @@ const CreateMeal = () => {
 
                                 <label className="label">Your experience</label>
                                 <input type="text" className="input" {...register("experience",{required:true})} placeholder='in years'/>
-                                
-                            <button className="btn btn-primary mt-4 w-1/4">Create</button>
+                            {
+                                isFraud ? 
+                                (
+                                <button className="btn btn-disabled mt-4 w-1/4">Create</button>
+                                ) : (
+                                <button className="btn btn-primary mt-4 w-1/4">Create</button>
+                                )
+                            }
                             </fieldset>
                         </div>
                    </form>

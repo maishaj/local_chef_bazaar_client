@@ -16,6 +16,8 @@ import MyOrders from "../components/UserDashboard/MyOrders/MyOrders";
 import MyReviews from "../components/UserDashboard/MyReviews";
 import MyFavourites from "../components/UserDashboard/MyFavourites";
 import PaymentSuccess from "../components/Payment/PaymentSuccess";
+import CreateMeal from "../components/ChefDashboard/CreateMeal";
+import MyMeals from "../components/ChefDashboard/MyMeals";
 
 export const router = createBrowserRouter([
   {
@@ -45,27 +47,39 @@ export const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <PrivateRoute><DashboardHome></DashboardHome></PrivateRoute>
+        element: (
+          <PrivateRoute>
+            <DashboardHome></DashboardHome>
+          </PrivateRoute>
+        ),
       },
       {
         path: "my-profile",
-        element:<MyProfile></MyProfile>
+        element: <MyProfile></MyProfile>,
       },
       {
-        path:"my-orders",
-        element:<MyOrders></MyOrders>
+        path: "my-orders",
+        element: <MyOrders></MyOrders>,
       },
       {
-        path:"my-reviews",
-        element:<MyReviews></MyReviews>
+        path: "my-reviews",
+        element: <MyReviews></MyReviews>,
       },
       {
-        path:"my-favourites",
-        element:<MyFavourites></MyFavourites>
+        path: "my-favourites",
+        element: <MyFavourites></MyFavourites>,
       },
       {
-         path:"payment-success",
-         element:<PaymentSuccess></PaymentSuccess>
+        path: "payment-success",
+        element: <PaymentSuccess></PaymentSuccess>,
+      },
+      {
+        path:"create-meal",
+        element:<CreateMeal></CreateMeal>
+      },
+      {
+        path:"my-meal",
+        element:<MyMeals></MyMeals>
       }
     ],
   },
@@ -90,9 +104,7 @@ export const router = createBrowserRouter([
         path: "meal-details/:id/place-order",
         element: <OrderPage></OrderPage>,
       },
-      {
-
-      }
+      {},
     ],
   },
 ]);

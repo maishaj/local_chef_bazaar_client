@@ -6,6 +6,10 @@ import { IoBagSharp } from "react-icons/io5";
 import { FaComment } from "react-icons/fa6";
 import { FaHeart } from "react-icons/fa6";
 import useRole from '../hooks/useRole';
+import { IoIosAddCircle } from "react-icons/io";
+import { GiMeal } from "react-icons/gi";
+import { TbTruckDelivery } from "react-icons/tb";
+
 
 const DashboardLayout = () => {
 
@@ -67,6 +71,23 @@ const DashboardLayout = () => {
                             <Link to="/dashboard/my-favourites" className="is-drawer-close:tooltip is-drawer-close:tooltip-right" data-tip="My Favourites">
                                 <FaHeart />
                                 <span className="is-drawer-close:hidden">My Favourites</span>
+                            </Link>
+                        </li>
+                    }
+                    {
+                        role==="chef" &&
+                        <li>
+                            <Link to="/dashboard/create-meal" className="is-drawer-close:tooltip is-drawer-close:tooltip-right" data-tip="Create Meal">
+                                <IoIosAddCircle/>
+                                <span className="is-drawer-close:hidden">Create Meal</span>
+                            </Link>
+                            <Link to="/dashboard/my-meal" className="is-drawer-close:tooltip is-drawer-close:tooltip-right" data-tip="My Meals">
+                                <GiMeal />
+                                <span className="is-drawer-close:hidden">My Meals</span>
+                            </Link>
+                            <Link to="/dashboard/" className="is-drawer-close:tooltip is-drawer-close:tooltip-right" data-tip="Order Requests">
+                                <TbTruckDelivery />
+                                <span className="is-drawer-close:hidden">Order Requests</span>
                             </Link>
                         </li>
                     }

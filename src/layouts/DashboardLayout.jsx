@@ -101,7 +101,7 @@ const DashboardLayout = () => {
                                 <FaUserCog />
                                 <span className="is-drawer-close:hidden">Manage Users</span>
                             </Link>
-                            <Link to="/dashboard/" className="is-drawer-close:tooltip is-drawer-close:tooltip-right" data-tip="Manage Request">
+                            <Link to="/dashboard/manage-requests" className="is-drawer-close:tooltip is-drawer-close:tooltip-right" data-tip="Manage Request">
                                 <LuMessageSquareQuote />
                                 <span className="is-drawer-close:hidden">Manage Request</span>
                             </Link>

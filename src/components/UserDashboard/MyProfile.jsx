@@ -27,7 +27,7 @@ const MyProfile = () => {
             userEmail:userInfo.email,
             requestType:requestedRole,
             requestStatus:"pending",
-            requestTime:new Date().toLocaleString
+            requestTime:new Date().toLocaleString()
         }
         Swal.fire({
             title: `You want to be an ${requestedRole}?`,

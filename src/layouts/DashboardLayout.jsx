@@ -105,7 +105,7 @@ const DashboardLayout = () => {
                                 <LuMessageSquareQuote />
                                 <span className="is-drawer-close:hidden">Manage Request</span>
                             </Link>
-                            <Link to="/dashboard/" className="is-drawer-close:tooltip is-drawer-close:tooltip-right" data-tip="Platform Statistics">
+                            <Link to="/dashboard/platform-statistics" className="is-drawer-close:tooltip is-drawer-close:tooltip-right" data-tip="Platform Statistics">
                                 <FcStatistics />
                                 <span className="is-drawer-close:hidden">Platform Statistics</span>
                             </Link>

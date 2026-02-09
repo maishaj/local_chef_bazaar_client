@@ -27,7 +27,7 @@ const CreateMeal = () => {
 
    const isFraud=dbUser?.status==="fraud";
 
-    const handleCreateMeal= (data)=>{
+    const handleCreateMeal= async(data)=>{
         const toastId = toast.loading("Adding your meal...");
         //image
         const imageFile=data.image[0];
@@ -36,7 +36,8 @@ const CreateMeal = () => {
 
         const img_API_URl=`https://api.imgbb.com/1/upload?key=${import.meta.env.VITE_image_host_key}`;
 
-        const res=axios.post(img_API_URl,formData);
+        const res=await axios.post(img_API_URl,formData);
+         console.log(res);
         const photoURL=res.data.data.url;
 
         //ingredients
@@ -61,6 +62,7 @@ const CreateMeal = () => {
 
        axiosSecure.post('/meals',mealInfo)
        .then((res)=>{
+         
          if(res.data.insertedId)
          {
             reset();

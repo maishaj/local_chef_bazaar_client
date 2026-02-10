@@ -1,13 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import logoImg from '../../assets/local_chef_bazaar_logo.png'
-import { Link, NavLink, useNavigate } from 'react-router';
+import { Link, NavLink, useNavigate, useSearchParams } from 'react-router';
 import useAuth from '../../hooks/useAuth';
 import toast from 'react-hot-toast';
 
 const Navbar = () => {
 
     const {user,logOut}=useAuth();
-    const navigate=useNavigate();
+    const navigate=useNavigate();4
+    const [timer,setTimer]=useState(null);
+
+    const [searchParams]=useSearchParams();
+    const searchTerm=searchParams.get("search") || "";
 
     const links=
     <>
@@ -29,6 +33,19 @@ const Navbar = () => {
         })
     }
 
+    const handleSearch=(e)=>{
+        const searchText=e.target.value;
+
+        if(timer){
+            clearTimeout(timer);
+        }
+        const newTimer=setTimeout(()=>{
+           navigate(`/meals?search=${searchText}`);
+        },500);
+
+        setTimer(newTimer);
+    }
+
     return (
         <div className="navbar bg-base-100 shadow-sm">
             <div className="navbar-start">
@@ -42,14 +59,25 @@ const Navbar = () => {
                   {links}
                 </ul>
             </div>
-            <a className="btn btn-ghost text-xl"><img src={logoImg} className='w-10 h-10 md:w-15 md:h-15  lg:w-15 lg:h-15' />Chef Bazaar</a>
+            <a className="btn btn-ghost text-xl"><img src={logoImg} className='w-10 h-10 md:w-15 md:h-15  lg:w-15 lg:h-15' /><span className='text-[14px] md:text-[18px] lg:text-[18px]'>Chef Bazaar</span></a>
             </div>
 
-            <div className="navbar-center hidden lg:flex">
-            <ul className="menu menu-horizontal px-1">
-                {links}
-            </ul>
+            <div className="navbar-center hidden lg:flex md:flex gap-5">
+                <ul className="menu menu-horizontal px-1">
+                    {links}
+                </ul>
+                <div>
+                    <input 
+                    onChange={handleSearch}
+                    name="search" 
+                    type="text" 
+                    placeholder="Search meals..." 
+                    defaultValue={searchTerm}
+                    className="input input-bordered w-24 md:w-auto input-sm" 
+                    />
+                </div>
             </div>
+            
 
             <div className="navbar-end">
             {

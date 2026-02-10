@@ -9,7 +9,7 @@ const AdminDashboardHome = () => {
 
     return (
          <div>
-          <div className="hero h-64 rounded-3xl overflow-hidden bg-gradient-to-r from-primary to-secondary text-primary-content mb-10 shadow-lg">
+          <div className="hero h-64 rounded-3xl overflow-hidden bg-linear-to-r from-primary to-secondary text-primary-content mb-10 shadow-lg">
           <div className="hero-content flex-col lg:flex-row-reverse w-full justify-between px-10">
         
         <div className="hidden lg:block">

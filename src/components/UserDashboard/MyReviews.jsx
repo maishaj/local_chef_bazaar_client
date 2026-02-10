@@ -76,8 +76,8 @@ const MyReviews = () => {
                                         Added on: {new Date(review.date).toLocaleDateString()}
                                     </p>
                                 </div>
-                                <div className="badge badge-secondary font-bold p-3">
-                                    ⭐ {review.rating}/5
+                                <div className="badge badge-secondary font-bold p-3 flex">
+                                    <span>⭐</span> <span>{review.rating}/5</span>
                                 </div>
                             </div>
 

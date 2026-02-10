@@ -5,26 +5,29 @@ const MyOrdersCard = ({order}) => {
 
     const axiosSecure=useAxiosSecure()
 
-    const {mealName,price,quantity,foodId,chefId,paymentStatus,chefName,deliveryTime,userEmail,userAddress,orderStatus}=order;
+    const {mealName,price,quantity,foodId,chefId,paymentStatus,chefName,deliveryTime,userEmail,userAddress,orderStatus,orderTime}=order;
 
     const handlePayment=async()=>{
         const paymentInfo={
-            foodId:foodId,
-            mealName:mealName,
-            price:price,
-            quantity:quantity,
-            userEmail:userEmail
+            orderId: order._id, 
+            foodId: foodId,
+            mealName: mealName,
+            price: price,
+            quantity: quantity,
+            userEmail: userEmail
         }
         const res=await axiosSecure.post('/create-checkout-session',paymentInfo);
         window.location.href= res.data.url;
-
     }
     
     return (
         <div className="card bg-base-100 shadow-xl border border-base-200 hover:shadow-2xl transition-all">
                 <div className="card-body p-6">
                     <div className="flex justify-between items-start">
-                        <h2 className="card-title text-xl font-bold text-primary">{mealName}</h2>
+                        <div>
+                            <h2 className="card-title text-xl font-bold text-primary">{mealName}</h2>
+                            <h2 className='font-semibold'>{orderTime}</h2>
+                        </div>
                         <div className={`badge ${orderStatus === 'Pending' ? 'badge-warning' : 'badge-success'}`}>
                             {orderStatus}
                         </div>
@@ -56,7 +59,7 @@ const MyOrdersCard = ({order}) => {
                     <div className="flex justify-between items-center mt-4">
                         <p className="text-2xl font-bold text-secondary">TK {price * quantity}</p>
                         <div className="card-actions">
-                            {paymentStatus === 'Pending' && (
+                            {paymentStatus === 'Pending' && orderStatus==="Accepted" && (
                                 <button onClick={handlePayment} className="btn btn-primary btn-sm px-6">Pay</button>
                             )}
                         </div>

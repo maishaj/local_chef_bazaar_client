@@ -37,7 +37,6 @@ const CreateMeal = () => {
         const img_API_URl=`https://api.imgbb.com/1/upload?key=${import.meta.env.VITE_image_host_key}`;
 
         const res=await axios.post(img_API_URl,formData);
-         console.log(res);
         const photoURL=res.data.data.url;
 
         //ingredients
@@ -48,6 +47,7 @@ const CreateMeal = () => {
            foodName:data.mealName,
            foodImage:photoURL,
            chefName:data.chefName,
+           chefId:dbUser.chefId,
            foodPrice:parseFloat(data.price),
            foodRating:parseFloat(data.rating),
            deliveryArea:data.deliveryArea,

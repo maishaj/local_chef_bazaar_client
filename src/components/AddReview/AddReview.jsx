@@ -86,7 +86,7 @@ const AddReview = ({foodName}) => {
                                 </div>
 
                                 <p className="mt-3 text-sm text-gray-600 italic">
-                                    "{review.comment}"
+                                    {review.comment}
                                 </p>
                             </div>
                         </div>

@@ -8,6 +8,7 @@ import AddReview from '../AddReview/AddReview';
 import { FaRegHeart } from "react-icons/fa6";
 import useAuth from '../../hooks/useAuth';
 import toast from 'react-hot-toast';
+import DynamicTitle from '../DynamicTitle/DynamicTitle';
 
 const MealDetails = () => {
 
@@ -141,19 +142,19 @@ const MealDetails = () => {
                         (
                                 <button 
                                     onClick={() => toast.error("Your account is restricted from placing orders.")}
-                                    className="w-1/3 btn btn-disabled btn-lg mr-4"
+                                    className="w-1/3 btn btn-disabled btn-lg mr-4 p-1"
                                 >
                                     Order Now
                                 </button>
                             ) : (
                                 <Link 
                                     to={`/meals/meal-details/${_id}/place-order`} 
-                                    className="w-1/3 btn btn-primary btn-lg shadow-lg hover:shadow-primary/30 mr-4"
+                                    className="w-1/3 btn btn-primary btn-lg shadow-lg hover:shadow-primary/30 mr-4 p-1"
                                 >
                                     Order Now
                                 </Link>)
                         }
-                        <button onClick={()=>handleFavourites(_id)} className="w-1/3 btn btn-primary btn-lg shadow-lg hover:shadow-primary/30"><FaRegHeart/>Add to Fav</button>
+                        <button onClick={()=>handleFavourites(_id)} className="w-1/3 btn btn-primary btn-lg shadow-lg hover:shadow-primary/30 p-1">Add to Fav</button>
                     </div>
                 </div>
             </div>

@@ -12,6 +12,7 @@ import { TbTruckDelivery } from "react-icons/tb";
 import { FaUserCog } from "react-icons/fa";
 import { LuMessageSquareQuote } from "react-icons/lu";
 import { FcStatistics } from "react-icons/fc";
+import DynamicTitle from '../components/DynamicTitle/DynamicTitle';
 
 
 const DashboardLayout = () => {
@@ -20,6 +21,7 @@ const DashboardLayout = () => {
 
     return (
         <div>
+            <DynamicTitle></DynamicTitle>
             <div className="drawer lg:drawer-open">
             <input id="my-drawer-4" type="checkbox" className="drawer-toggle" />
             

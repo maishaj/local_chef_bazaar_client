@@ -42,7 +42,7 @@ const Navbar = () => {
                   {links}
                 </ul>
             </div>
-            <a className="btn btn-ghost text-xl"><img src={logoImg} className='w-15 h-15' />Chef Bazaar</a>
+            <a className="btn btn-ghost text-xl"><img src={logoImg} className='w-10 h-10 md:w-15 md:h-15  lg:w-15 lg:h-15' />Chef Bazaar</a>
             </div>
 
             <div className="navbar-center hidden lg:flex">

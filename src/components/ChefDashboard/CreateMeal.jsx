@@ -75,7 +75,7 @@ const CreateMeal = () => {
         <div className='w-10/12 mx-auto'>
             <h1 className='text-3xl text-center m-10 font-bold'>Create<span className='text-primary'>Meals</span></h1>
                <div className='flex flex-col-reverse md:flex-row lg:flex-row'>
-                   <form onSubmit={handleSubmit(handleCreateMeal)} className="m-10 w-full md:w-1/2 lg:w-1/2">
+                   <form onSubmit={handleSubmit(handleCreateMeal)} className="w-full md:w-1/2 lg:w-1/2">
                         <div>
                             <fieldset className="fieldset">
                                 <label className="label">Meal Name</label>

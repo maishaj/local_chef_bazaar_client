@@ -38,7 +38,7 @@ const OrderRequests = () => {
     };
     return (
         <div className="p-6">
-                <h2 className="text-2xl font-bold mb-4">Incoming Order Requests: {requests.length}</h2>
+                <h2 className="text-xl font-bold mb-4">Order Requests: {requests.length}</h2>
                 <div className="overflow-x-auto shadow-lg rounded-lg">
                     <table className="table w-full">
                         <thead className="bg-orange-500 text-white">

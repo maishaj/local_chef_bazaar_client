@@ -6,10 +6,12 @@ import Hero from '../components/Hero/Hero';
 import Meals from '../components/MealsPage/Meals';
 import Reviews from '../components/Reviews/Reviews';
 import Newsletter from '../components/Newsletter/Newsletter';
+import DynamicTitle from '../components/DynamicTitle/DynamicTitle';
 
 const RootLayout = () => {
     return (
         <div className='w-full mx-auto'>
+            <DynamicTitle></DynamicTitle>
             <Navbar></Navbar>
             <Hero></Hero>
             <Meals></Meals>

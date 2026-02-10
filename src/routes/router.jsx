@@ -22,17 +22,19 @@ import OrderRequests from "../components/ChefDashboard/OrderRequests";
 import ManageUsers from "../components/AdminDashboard/ManageUsers";
 import ManageRequests from "../components/AdminDashboard/ManageRequests";
 import PlatformStatistics from "../components/AdminDashboard/PlatformStatistics";
+import Error from "../components/Error/Error";
 
 export const router = createBrowserRouter([
   {
     path: "/",
     element: <RootLayout></RootLayout>,
-    children: [{}],
+    errorElement:<Error></Error>
   },
 
   {
     path: "/auth",
     element: <AuthLayout></AuthLayout>,
+    errorElement:<Error></Error>,
     children: [
       {
         path: "login",
@@ -48,6 +50,7 @@ export const router = createBrowserRouter([
   {
     path: "/dashboard",
     element: <DashboardLayout></DashboardLayout>,
+    errorElement:<Error></Error>,
     children: [
       {
         index: true,
@@ -111,6 +114,7 @@ export const router = createBrowserRouter([
         <AllMealsLayout></AllMealsLayout>
       </PrivateRoute>
     ),
+    errorElement:<Error></Error>,
     children: [
       {
         index: true,
@@ -124,7 +128,6 @@ export const router = createBrowserRouter([
         path: "meal-details/:id/place-order",
         element: <OrderPage></OrderPage>,
       },
-      {},
     ],
   },
 ]);

@@ -40,16 +40,18 @@ const AddReview = ({foodName}) => {
 
         axiosSecure.post('/reviews',reviewData)
         .then((res)=>{
+            if(res.data.insertedId){
             refetch();
             setReview("");
             setRating(5);
             reset();
             toast.success("Thanks for your feedback");
+            }
         })
     }
 
     return (
-        <div className='w-11/12 mx-auto m-10'>
+        <div className='w-10/12 mx-auto m-10'>
            
             <div className="mt-12">
                 <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">

@@ -98,10 +98,10 @@ const MyMealsCard = ({meal,refetch}) => {
                 <div className="card-body flex flex-col grow">
                     <div className='grow space-y-1'>
                         <h2 className="card-title text-gray-500 italic">{meal.foodName}</h2>
-                        <div className="bg-base-200 p-5 rounded-2xl">
-                        <div className="flex flex-wrap gap-1 text-gray-500 italic">
+                        <div className="bg-base-200 p-4 rounded-2xl">
+                        <div className="flex flex-wrap justify-center items-center gap-1 text-gray-500 italic">
                             {meal.ingredients?.map((ind, index) => (
-                                <span key={index} className="badge badge-outline badge-md py-3 px-4 font-medium">
+                                <span key={index} className="badge badge-outline badge-md py-5 font-medium">
                                     {ind}
                                 </span>
                             ))}

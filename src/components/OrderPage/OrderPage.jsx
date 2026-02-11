@@ -31,7 +31,6 @@ const OrderPage = () => {
         chefId: chefId,
         email: user?.email,
         orderStatus: "Pending",
-        orderTime: new Date().toLocaleString()
       }
     });
     
@@ -77,8 +76,8 @@ const OrderPage = () => {
         };
 
     return (
-        <div className='w-10/12 flex justify-center items-center gap-2 mx-auto'>
-           <div className='w-1/2'>
+        <div className='w-11/12 flex flex-col-reverse md:flex-row lg:flex-row justify-center items-center gap-2 mx-auto'>
+           <div className='w-full md:w-1/2 lg:w-1/2'>
                 <h1 className='text-3xl text-center m-10 font-bold'>Place <span className='text-primary'>Order</span></h1>
                 <form onSubmit={handleSubmit(handleOrder)} className="m-10">
                         <div>
@@ -104,15 +103,15 @@ const OrderPage = () => {
                                 <label className="label">Order Status</label>
                                 <input type="text" className="input" {...register("orderStatus")}  readOnly/>
 
-                                <label className="label">Time</label>
-                                <input type="text" className="input" {...register("orderTime",)}  readOnly/>
+                                {/* <label className="label">Time</label>
+                                <input type="text" className="input" {...register("orderTime")} readOnly/> */}
                                 
-                            <button className="btn btn-neutral mt-4 w-1/4">Place Order</button>
+                            <button className="w-full btn btn-neutral mt-4 md:w-1/4 lg:w-1/4 p-3">Place Order</button>
                             </fieldset>
                         </div>
                 </form>
            </div>
-           <div className='w-1/2'>
+           <div className='w-full md:w-1/2 lg:w-1/2 mt-10'>
                 <img src={orderImg} alt="" />
            </div>
         </div>

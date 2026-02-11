@@ -69,7 +69,7 @@ const MyProfile = () => {
                                     {role}
                                 </span>
                                 <span className={`badge badge-lg font-semibold uppercase ${userInfo.status === 'active' ? 'badge-success' : 'badge-warning'}`}>
-                                    {userInfo.status}
+                                    {userInfo?.status || "Active"}
                                 </span>
                             </div>
                         </div>

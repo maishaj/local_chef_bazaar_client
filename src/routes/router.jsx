@@ -28,13 +28,13 @@ export const router = createBrowserRouter([
   {
     path: "/",
     element: <RootLayout></RootLayout>,
-    errorElement:<Error></Error>
+    errorElement: <Error></Error>,
   },
 
   {
     path: "/auth",
     element: <AuthLayout></AuthLayout>,
-    errorElement:<Error></Error>,
+    errorElement: <Error></Error>,
     children: [
       {
         path: "login",
@@ -50,7 +50,7 @@ export const router = createBrowserRouter([
   {
     path: "/dashboard",
     element: <DashboardLayout></DashboardLayout>,
-    errorElement:<Error></Error>,
+    errorElement: <Error></Error>,
     children: [
       {
         index: true,
@@ -81,40 +81,36 @@ export const router = createBrowserRouter([
         element: <PaymentSuccess></PaymentSuccess>,
       },
       {
-        path:"create-meal",
-        element:<CreateMeal></CreateMeal>
+        path: "create-meal",
+        element: <CreateMeal></CreateMeal>,
       },
       {
-        path:"my-meal",
-        element:<MyMeals></MyMeals>
+        path: "my-meal",
+        element: <MyMeals></MyMeals>,
       },
       {
-        path:"order-request",
-        element:<OrderRequests></OrderRequests>
+        path: "order-request",
+        element: <OrderRequests></OrderRequests>,
       },
       {
-        path:"manage-users",
-        element:<ManageUsers></ManageUsers>
+        path: "manage-users",
+        element: <ManageUsers></ManageUsers>,
       },
       {
-        path:"manage-requests",
-        element:<ManageRequests></ManageRequests>
+        path: "manage-requests",
+        element: <ManageRequests></ManageRequests>,
       },
       {
-        path:"platform-statistics",
-        element:<PlatformStatistics></PlatformStatistics>
-      }
+        path: "platform-statistics",
+        element: <PlatformStatistics></PlatformStatistics>,
+      },
     ],
   },
 
   {
     path: "/meals",
-    element: (
-      <PrivateRoute>
-        <AllMealsLayout></AllMealsLayout>
-      </PrivateRoute>
-    ),
-    errorElement:<Error></Error>,
+    element: <AllMealsLayout></AllMealsLayout>,
+    errorElement: <Error></Error>,
     children: [
       {
         index: true,
@@ -122,7 +118,11 @@ export const router = createBrowserRouter([
       },
       {
         path: "meal-details/:id",
-        element: <MealDetails></MealDetails>,
+        element: (
+          <PrivateRoute>
+            <MealDetails></MealDetails>,
+          </PrivateRoute>
+        ),
       },
       {
         path: "meal-details/:id/place-order",

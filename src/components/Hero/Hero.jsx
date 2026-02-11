@@ -41,9 +41,6 @@ const Hero = () => {
             <Link to="/meals" className="btn my-btn text-white mr-3">
               Order Now
             </Link>
-            <button className="btn btn-outline">
-              Become a Chef
-            </button>
           </motion.div>
         </motion.div>
 

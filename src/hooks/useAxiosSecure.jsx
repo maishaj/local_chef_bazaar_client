@@ -4,15 +4,14 @@ import useAuth from "./useAuth";
 import { useNavigate } from "react-router";
 
 const axiosSecure = axios.create({
-  baseURL: "http://localhost:3000",
+  baseURL: "https://local-chef-bazaar-server-rose.vercel.app",
 });
 
 const useAxiosSecure = () => {
-  const { user, logOut} = useAuth();
-  const navigate=useNavigate();
+  const { user, logOut } = useAuth();
+  const navigate = useNavigate();
 
   useEffect(() => {
-
     //intercept request
     const reqInterceptor = axiosSecure.interceptors.request.use((config) => {
       const token = user?.accessToken;
@@ -28,14 +27,11 @@ const useAxiosSecure = () => {
         return response;
       },
       (error) => {
-
-        const statusCode=error.status;
-        if(statusCode===401 || statusCode===403)
-        {
-            logOut
-            .then((res)=>{
-               navigate("/auth/login");
-            })
+        const statusCode = error.status;
+        if (statusCode === 401 || statusCode === 403) {
+          logOut.then((res) => {
+            navigate("/auth/login");
+          });
         }
         return Promise.reject(error);
       },
@@ -45,7 +41,7 @@ const useAxiosSecure = () => {
       axiosSecure.interceptors.request.eject(reqInterceptor);
       axiosSecure.interceptors.response.eject(resInterceptor);
     };
-  }, [user,logOut,navigate]);
+  }, [user, logOut, navigate]);
 
   return axiosSecure;
 };

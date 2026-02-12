@@ -24,62 +24,122 @@ const Register = () => {
 
     const password=watch("password","");
 
-    const handleRegistration=async(data)=>{
-        const email=data.email;
-        const password=data.password;
-        const profileImg=data.photo[0];
+    // const handleRegistration=async(data)=>{
+    //     const email=data.email;
+    //     const password=data.password;
+    //     const profileImg=data.photo[0];
         
-        await createUser(email,password)
-        .then((res)=>{
+    //     await createUser(email,password)
+    //     .then((res)=>{
 
-            const formData=new FormData();
-            formData.append("image",profileImg);
+    //         const formData=new FormData();
+    //         formData.append("image",profileImg);
 
-            //upload to imagebb using axios
-            const img_API_URl=`https://api.imgbb.com/1/upload?key=${import.meta.env.VITE_image_host_key}`;
-            axios.post(img_API_URl,formData)
-            .then((res)=>{
-                const photoURL=res.data.data.url;
-                //create user in database
-                const userInfo={
-                    displayName:data.name,
-                    email:data.email,
-                    photoURL:photoURL,
-                    address:data.address
-                }
-                axiosSecure.post('/users',userInfo)
-                .then((res)=>{
-                })
+    //         //upload to imagebb using axios
+    //         const img_API_URl=`https://api.imgbb.com/1/upload?key=${import.meta.env.VITE_image_host_key}`;
+    //         axios.post(img_API_URl,formData)
+    //         .then((res)=>{
+    //             const photoURL=res.data.data.url;
+    //             //create user in database
+    //             const userInfo={
+    //                 displayName:data.name,
+    //                 email:data.email,
+    //                 photoURL:photoURL,
+    //                 address:data.address
+    //             }
+    //             const dbRes=axiosSecure.post('/users',userInfo)
+    //             .then((res)=>{
+    //             })
 
-                //update Profile
-                const profile={
-                    displayName:data.name,
-                    photoURL:photoURL,
-                }
-                updateUserProfile(profile)
-                .then((res)=>{
-                })
-            })
-            toast.success("You registered successfully!");
-            navigate(location?.state || "/");
-            reset();
-        })
-        .catch((error)=>{
-        })
+    //             //update Profile
+    //             const profile={
+    //                 displayName:data.name,
+    //                 photoURL:photoURL,
+    //             }
+    //             updateUserProfile(profile)
+    //             .then((res)=>{
+    //             })
+    //         })
+    //         toast.success("You registered successfully!");
+    //         navigate(location?.state || "/");
+    //         reset();
+    //     })
+    //     .catch((error)=>{
+    //     })
 
+    // }
+    const handleRegistration = async (data) => {
+    const { email, password, name, address } = data;
+    const profileImg = data.photo[0];
+
+    try {
+        const res = await createUser(email, password);
+
+        const formData = new FormData();
+        formData.append("image", profileImg);
+        const img_API_URl = `https://api.imgbb.com/1/upload?key=${import.meta.env.VITE_image_host_key}`;
+        
+        const imgRes = await axios.post(img_API_URl, formData);
+        const photoURL = imgRes.data.data.url;
+
+        const userInfo = {
+            displayName: name,
+            email: email.toLowerCase(), 
+            photoURL: photoURL,
+            address: address
+        };
+
+        const dbRes = await axiosSecure.post('/users', userInfo);
+
+        if (dbRes.data.message === "User already exists") {
+            toast.error("This email is already registered in our database!");
+            return; 
+        }
+
+        const profile = { displayName: name, photoURL: photoURL };
+        await updateUserProfile(profile);
+
+        toast.success("You registered successfully!");
+        reset();
+        navigate(location?.state || "/");
+
+    } catch (error) {
+        console.error(error);
+
+        if (error.code === 'auth/email-already-in-use') {
+            toast.error("Email already in use. Please try logging in.");
+        } else if (error.response?.data?.message === "User already exists") {
+             toast.error("User already exists in our records.");
+        } else {
+            toast.error(error.message || "Registration failed. Please try again.");
+        }
     }
+};
 
-    const handleGoogle=()=>{
-        googleSignIn()
-        .then((res)=>{
-            toast.success("You logged in successfully!");
-            navigate(location?.state || "/");
-        })
-        .catch((err)=>{
-            console.error(err);
-            toast.error("Failed to login. Please try again.");
-        })
+    const handleGoogle = async () => {
+    try {
+        const result = await googleSignIn();
+        const user = result.user;
+
+        await new Promise(resolve => setTimeout(resolve, 500));
+
+        const userInfo = {
+        displayName: user.displayName,
+        email: user.email,
+        photoURL: user.photoURL,
+        address: "",
+        };
+
+        await axiosSecure.post("/users", userInfo);
+
+        toast.success("You logged in successfully!");
+        navigate(location?.state || "/");
+
+    } catch (error) {
+        console.error(error);
+        toast.error("Failed to login.");
     }
+    };
 
 
     return (

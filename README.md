@@ -1,308 +1,59 @@
-LocalChefBazaar — Marketplace for Local Home-Cooked Meals
-📌 Project Overview
+LocalChefBazaar - Marketplace for Local Home-Cooked Meals
 
-LocalChefBazaar is a full-stack MERN marketplace platform that connects local home chefs with customers looking for fresh, healthy, and affordable homemade meals.
+Project Purpose: LocalChefBazaar is a modern MERN stack platform designed to connect local home cooks (Chefs) with customers seeking fresh, healthy, and affordable homemade meals. It allows chefs to earn income from their kitchens while providing users with a real-time ordering and secure payment experience
 
-Customers can browse meals, view details, place orders, make secure payments, leave reviews, and track order status in real-time.
+🚀Live Links
 
-Chefs can create and manage meals, accept or reject orders, and deliver meals.
-
-Admins can manage users, handle role requests, monitor fraud users, and view platform statistics.
-
-🎯 Project Purpose
-
-This project demonstrates:
-
-Full-stack MERN development skills
-
-Role-based authentication & authorization
-
-Secure JWT-based authentication
-
-Payment system integration (Stripe)
-
-CRUD operations with MongoDB
-
-Dashboard management system
-
-Real-time order status updates
-
-Clean, recruiter-friendly UI design
-
-🌐 Live URL
-
-🔗 Client Live Site: https://your-live-client-url.com
-
-🔗 Server Live API: https://your-live-server-url.com
-
-🔐 Admin Credentials
-
-Admin Email: samiha@gmail.com
-
-Admin Password: Samiha@123
-
-👥 User Roles
-
-The system has three main roles:
-
-👤 Normal User (Customer)
-
-Browse meals
-
-View meal details
-
-Add reviews
-
-Add to favorites
-
-Place orders
-
-Make payments
-
-Track order status
-
-Manage profile
-
-👨‍🍳 Chef
-
-Create meals
-
-Update/Delete meals
-
-Manage order requests
-
-Accept / Cancel / Deliver orders
-
-View chef-specific dashboard
-
-👑 Admin
-
-Manage users
-
-Mark users as fraud
-
-Manage role requests
-
-Approve Chef/Admin requests
-
-View platform statistics
-
-Monitor payments & orders
+Live Website: https://local-chef-bazaar-27127.web.app/
+Server Repository: https://github.com/maishaj/local_chef_bazaar_server
+Client Repository: https://github.com/maishaj/local_chef_bazaar_client
 
 ✨ Key Features
-🔐 Authentication
 
-Firebase Email & Password Login
+1. Role-Based Access Control (RBAC)
 
-JWT-based Authorization
+Customer: Can browse meals, manage favorite lists, and place orders.
+Chef: Can create and manage menus, and handle incoming order requests.
+Admin: Full system access to manage users, approve chef requests, and view platform statistics.
 
-Role-based protected routes
+2. Meal Management & Ordering
 
-Secure MongoDB & Firebase config using environment variables
+Dynamic Daily Meals: Real-time meal cards with sorting functionality by price.
+Interactive Reviews: Users can submit and view ratings and comments for specific meals.
+Secure Checkout: Integrated Stripe payment gateway for order completion.
 
-🏠 Home Page
+3. Comprehensive Dashboards
+   Chef Dashboard: Manage order statuses (Pending → Accepted → Delivered).
+   Admin Dashboard: Approve/Reject "Be a Chef" requests and visualize data with Recharts.
 
-Animated Hero Section (Framer Motion)
+4. Security & Performance
 
-Dynamic Daily Meals (6 items)
+JWT Authentication: Secure token-based access for protected routes.
+Firebase Auth: Handles user registration and secure login.
+Fully Responsive: Optimized for desktop and mobile devices.
 
-Customer Reviews Section
+🛠️ Technologies & Packages Used
 
-Extra Custom Section
+Frontend
 
-🍽 Meals Page
+React.js: UI Framework
+Tailwind CSS & DaisyUI: Styling and alignment
+Framer Motion: Animated Hero and Banner sections
+React Hook Form: Handling all form validations
+Recharts: Visualizing platform statistics
+Axios: API communication
+SweetAlert2 / React Hot Toast: Success and error notifications
 
-Card layout of meals
+Backend
 
-Sort by price (Ascending/Descending)
+Node.js & Express.js: Server-side logic
+MongoDB: Database for meals, users, and orders
+JSON Web Token (JWT): Secure authentication
+Stripe: Payment processing
+Dotenv: Managing environment variables for security
 
-Pagination (10 items per page)
-
-See Details (Protected)
-
-📄 Meal Details Page
-
-Full meal information
-
-Review system (Add, Update, Delete)
-
-Add to Favorite
-
-Order Now button
-
-❤️ Favorite System
-
-Add meal to favorites
-
-Prevent duplicate favorites
-
-Delete favorite meals
-
-🛒 Order System
-
-Auto-filled order form
-
-Quantity-based total price calculation
-
-SweetAlert confirmation
-
-Order saved to MongoDB
-
-Order status tracking
-
-💳 Stripe Payment Integration
-
-Payment only when order is accepted
-
-Payment status updated
-
-Payment history stored
-
-Redirect to success page
-
-📊 Dashboards
-
-User Dashboard
-
-My Profile
-
-My Orders
-
-My Reviews
-
-Favorite Meals
-
-Chef Dashboard
-
-Create Meal
-
-My Meals
-
-Order Requests
-
-Admin Dashboard
-
-Manage Users
-
-Manage Requests
-
-Platform Statistics (Recharts)
-
-Fraud User Management
-
-📈 Platform Statistics
-
-Total Payment Amount
-
-Total Users
-
-Orders Pending
-
-Orders Delivered
-
-Recharts visualization (Bar / Pie Chart)
-
-⚠️ Fraud System
-
-Admin can mark user/chef as fraud
-
-Fraud users cannot place orders
-
-Fraud chefs cannot create meals
-
-📱 Responsive Design
-
-Fully responsive for mobile, tablet & desktop
-
-Proper spacing & alignment
-
-Clean modern UI
-
-🛠 Technologies Used
-💻 Frontend
-
-React.js
-
-React Router
-
-React Hook Form
-
-Axios
-
-Axios Interceptors
-
-TanStack React Query
-
-Framer Motion
-
-Recharts
-
-SweetAlert2
-
-Stripe JS
-
-Tailwind CSS / DaisyUI
-
-🖥 Backend
-
-Node.js
-
-Express.js
-
-MongoDB
-
-JWT (jsonwebtoken)
-
-Stripe Payment API
-
-Cookie-parser
-
-CORS
-
-Dotenv
-
-🔥 Authentication
-
-Firebase Authentication (Email & Password)
-
-🔒 Security Features
-
-JWT Token Verification Middleware
-
-Role-based Route Protection
-
-Environment Variable Protection
-
-MongoDB credentials secured
-
-Firebase config secured
-
-Protected API endpoints
-
-📂 Database Collections
-
-users
-
-meals
-
-reviews
-
-favorites
-
-order_collection
-
-payment_history
-
-role_requests
-
-🚀 Deployment
-
-Client: Firebase
-
-Server: Vercel 
-
-Firebase Domain Authorized
-
-No CORS / 404 / 504 Errors
-
-Private routes protected on reload
+💻 Local Setup
+Clone the repository.
+Install dependencies: npm install.
+Create a .env file with your MONGODB_URI, STRIPE_SECRET_KEY, and FIREBASE_CONFIG.
+Run the project: npm run dev.

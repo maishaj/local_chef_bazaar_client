@@ -24,6 +24,7 @@ const AllMealsCard = ({meal}) => {
                     <h2 className='text-[14px] md:text-[16px] lg:text-[16px]'>By {chefName}</h2>
                     <h3 className='text-[14px] md:text-[16px] lg:text-[16px]'>Chef ID: {chefId}</h3>
                     <h3 className='text-[14px] md:text-[16px] lg:text-[16px]'>TK {foodPrice}</h3>
+                    <h3 className='text-[14px] md:text-[16px] lg:text-[16px] badge badge-outline outline-primary'>{deliveryArea}</h3>
                 </div>
                 <div className='flex gap-1'>
                     <img className='w-3.5 h-4 md:w-6 md:h-6 lg:w-6 lg:h-6' src={star} alt="" />

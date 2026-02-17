@@ -1,56 +1,56 @@
-# LocalChefBazaar - Marketplace for Local Home-Cooked Meals
+# 👨‍🍳 LocalChefBazaar – Marketplace for Local Home-Cooked Meals
 
-## 📖 Project Purpose
-LocalChefBazaar is a modern online platform that connects home cooks with people looking for fresh, homemade food. It allows chefs to earn money from their kitchens while providing customers access to healthy, affordable meals prepared by local chefs.
+**LocalChefBazaar** is a modern MERN stack platform that connects home cooks with people looking for fresh, homemade food. The platform empowers local chefs to earn from their kitchens while providing customers with access to healthy, affordable meals with real-time tracking and secure payments.
 
----
-
-## 🚀 Live Links
-* **Live Website:** [https://local-chef-bazaar-27127.web.app/](https://local-chef-bazaar-27127.web.app/)
-* **Server Repository:** [https://github.com/maishaj/local_chef_bazaar_server](https://github.com/maishaj/local_chef_bazaar_server)
-* **Client Repository:** [https://github.com/maishaj/local_chef_bazaar_client](https://github.com/maishaj/local_chef_bazaar_client)
+🔗 **[Live Site URL](https://local-chef-bazaar.web.app/)**
+📂 **[Client Repository](https://github.com/maishaj/local_chef_bazaar_client)**
+📂 **[Server Repository](https://github.com/maishaj/local_chef_bazaar_server)**
 
 ---
 
-## ✨ Key Features
+## 🚀 Key Features
 
-### 1. User Roles and Permissions 
-* **Customer:** Can browse meals, place orders, and leave reviews
-* **Chef:** Can upload menus, manage food items, and handle customer orders.
-* **Admin:** Has full system access, including managing users, chefs, and platform statistics.
-
-### 2. Meal Management & Ordering
-* **Dynamic Daily Meals:** Displays a list of meals with real-time sorting by price.
-* **Interactive Reviews:** Users can submit ratings and comments that update the UI instantly.
-* **Secure Checkout:** Integrated Stripe payment gateway for secure meal purchases.
-
-### 3. Comprehensive Dashboards [cite: 206]
-* **Chef Dashboard:** Manage order statuses (Pending → Accepted → Delivered).
-* **Admin Dashboard:** Approve/Reject "Be a Chef" requests and visualize data using Recharts.
-
-### 4. Security & Performance
-* **JWT Authentication:** Secure token-based access for protected routes and API requests.
-* **Firebase Auth:** Handles secure user registration and login.
-* **Fully Responsive:** Optimized design for mobile and desktop alignment.
+* **Role-Based Access Control (RBAC):** Tailored interfaces and specific permissions for **Admins**, **Chefs**, and **Normal Users**.
+* **Dynamic Meal Management:** Chefs can upload menus, manage food items (ingredients, price, delivery area), and handle customer orders.
+* **Secure Ordering & Payments:** Integrated **Stripe** payment functionality for orders, with status tracking from "Pending" to "Delivered."
+* **Interactive Marketplace:** Public meals page with price sorting, detailed meal insights, and chef experience details.
+* **Engagement System:** Users can submit reviews with ratings and maintain a personalized "Favorite Meals" collection.
+* **Admin Oversight:** Centralized dashboard to manage user roles, approve chef requests, and monitor platform statistics via **Recharts**.
+* **Responsive & Animated UI:** A mobile-optimized design featuring smooth animations powered by **Framer Motion**.
 
 ---
 
-## 🛠️ Technologies & Packages Used
+## 🛠️ Technologies Used
 
-### **Frontend**
-* **React.js:** UI Framework
-* **Tailwind CSS & DaisyUI:** Proper alignment and eye-pleasing design 
-* **Framer Motion:** Animated Hero and Banner sections
-* **React Hook Form:** Handling inputs and validation for all forms
-* **Recharts:** Visualizing platform metrics via Bar or Pie charts 
-* **Axios:** Secure API communication
-* **SweetAlert2 / React Hot Toast:** Confirmation and success messages 
+| Layer | Technology |
+| :--- | :--- |
+| **Frontend** | React.js, React Router, Tailwind CSS, Framer Motion |
+| **Backend** | Node.js, Express.js, JWT (JSON Web Token) |
+| **Database** | MongoDB |
+| **Authentication** | Firebase Authentication (Email/Password & Google Login) |
+| **Payments** | Stripe API |
+| **Hosting** | Firebase (Frontend) & Vercel (Backend) |
 
-### **Backend**
-* **Node.js & Express.js:** Server-side logic
-* **MongoDB:** Database for meals, users, orders, and favorites 
-* **JSON Web Token (JWT):** Secure access to protected data 
-* **Stripe:** Secure payment functionality 
-* **Dotenv:** Securing Firebase and MongoDB credentials 
+---
+
+## 🧱 Layout Structure
+
+### 🌍 Public Routes (Accessible to everyone)
+* **Home Page:** Animated Hero section, Daily Meals (6 most recent), Customer Reviews, and a Newsletter section.
+* **Meals Page:** Full menu display with sorting capabilities; "See Details" is restricted to logged-in users.
+* **Authentication:** Secure Login and Registration with role-based defaults and password validation.
+
+### 🛡️ Private Dashboards (Logged-in users only)
+* **User:** Profile management, My Orders, My Reviews, and Favorite Meals.
+* **Chef:** Create Meal (image upload required), My Meals management, and Order Request handling.
+* **Admin:** Manage Users (Make Fraud action), Request Approvals (Chef/Admin requests), and Platform Statistics.
+
+---
+
+## 🔑 Demo Admin Credentials
+To explore the Admin and Chef functionalities, use the following:
+
+> **Email:** `samiha@gmail.com`  
+> **Password:** `Samiha@123`
 
 ---

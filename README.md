@@ -48,7 +48,7 @@
 ---
 
 ## 🔑 Demo Admin Credentials
-To explore the Admin and Chef functionalities, use the following:
+To explore the Admin, use the following:
 
 > **Email:** `samiha@gmail.com`  
 > **Password:** `Samiha@123`

@@ -23,6 +23,8 @@ import ManageUsers from "../components/AdminDashboard/ManageUsers";
 import ManageRequests from "../components/AdminDashboard/ManageRequests";
 import PlatformStatistics from "../components/AdminDashboard/PlatformStatistics";
 import Error from "../components/Error/Error";
+import AboutLayout from "../layouts/AboutLayout";
+
 
 export const router = createBrowserRouter([
   {
@@ -30,7 +32,10 @@ export const router = createBrowserRouter([
     element: <RootLayout></RootLayout>,
     errorElement: <Error></Error>,
   },
-
+  {
+    path:"/about",
+    element:<AboutLayout></AboutLayout>
+  },
   {
     path: "/auth",
     element: <AuthLayout></AuthLayout>,

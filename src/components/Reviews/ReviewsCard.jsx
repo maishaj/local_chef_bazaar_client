@@ -8,7 +8,7 @@ const ReviewsCard = ({review}) => {
     const newDate=date.split('T')[0];
     
     return (
-        <div className='w-4/5 space-y-3 shadow-lg p-12 rounded-xl m-10'>
+        <div className='bg-base-200 border border-base-300 w-4/5 space-y-3 shadow-lg p-12 rounded-xl m-10'>
             <img className='w-20 h-20 rounded-full' src={reviewerImage} alt="" />
             <p>{comment}</p>
             <h2>{reviewerName}</h2>

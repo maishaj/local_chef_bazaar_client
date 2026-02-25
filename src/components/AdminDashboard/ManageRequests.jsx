@@ -32,71 +32,94 @@ const ManageRoleRequests = () => {
 
 
     return (
-        <div className="p-6">
-            <h2 className="text-2xl font-bold mb-6 text-neutral">Role Management Dashboard</h2>
-            <div className="overflow-x-auto shadow-2xl rounded-2xl border border-gray-100">
+       <div className="p-6 bg-base-100 text-base-content min-h-screen">
+            <h2 className="text-2xl font-bold mb-6">Role Management Dashboard</h2>
+            
+            <div className="overflow-x-auto shadow-2xl rounded-2xl border border-base-300 bg-base-100">
                 <table className="table w-full">
-                    <thead className="bg-orange-500 text-white">
+                    {/* Header: Removed hardcoded orange, using theme-aware neutral/base-300 */}
+                    <thead className="bg-base-200 text-base-content uppercase text-xs tracking-wider">
                         <tr>
-                            <th>User Details</th>
+                            <th className="py-4">User Details</th>
                             <th>Request Type</th>
                             <th>Time Sent</th>
                             <th>Current Status</th>
                             <th className="text-center">Action</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    
+                    <tbody className="divide-y divide-base-300">
                         {requests.map((req) => {
                             const isPending = req.requestStatus === 'pending';
 
                             return (
-                                <tr key={req._id} className="hover:bg-gray-50 transition-colors">
+                                <tr key={req._id} className="hover:bg-base-200/50 transition-colors">
                                     <td>
-                                        <div className="font-bold text-gray-800">{req.userName}</div>
-                                        <div className="text-sm opacity-60 italic">{req.userEmail}</div>
+                                        <div className="font-bold">{req.userName}</div>
+                                        <div className="text-xs opacity-60 italic">{req.userEmail}</div>
                                     </td>
                                     <td>
-                                        <span className={`px-3 py-1 rounded-full text-xs font-black uppercase ${
-                                            req.requestType === 'admin' ? 'bg-purple-100 text-purple-700' : 'bg-blue-100 text-blue-700'
+                                        {/* Type Badge: Using subtle opacity for modern dark look */}
+                                        <span className={`px-3 py-1 rounded-full text-[10px] font-black uppercase ring-1 ${
+                                            req.requestType === 'admin' 
+                                            ? 'bg-purple-500/10 text-purple-500 ring-purple-500/20' 
+                                            : 'bg-blue-500/10 text-blue-500 ring-blue-500/20'
                                         }`}>
                                             {req.requestType}
                                         </span>
                                     </td>
-                                    <td className="text-xs text-gray-500">{req.requestTime}</td>
+                                    <td className="text-xs opacity-70">
+                                        {new Date(req.requestTime).toLocaleString()}
+                                    </td>
                                     <td>
-                                        <div className={`badge badge-md border-none font-bold ${
-                                            req.requestStatus === 'approved' ? 'bg-green-500 text-white' :
-                                            req.requestStatus === 'rejected' ? 'bg-red-500 text-white' : 'bg-yellow-500 text-white'
+                                        <div className={`badge badge-md border-none font-bold py-3 ${
+                                            req.requestStatus === 'approved' ? 'bg-success/20 text-success' :
+                                            req.requestStatus === 'rejected' ? 'bg-error/20 text-error' : 
+                                            'bg-warning/20 text-warning'
                                         }`}>
                                             {req.requestStatus}
                                         </div>
                                     </td>
                                     <td className="flex justify-center gap-3">
-                                        <button 
-                                            onClick={() => updateStatus({ 
-                                                id: req._id, status: 'approved', 
-                                                userEmail: req.userEmail, requestType: req.requestType 
-                                            })}
-                                            disabled={!isPending}
-                                            className="btn btn-sm btn-success text-white px-4"
-                                        >
-                                            Accept
-                                        </button>
-                                        <button 
-                                            onClick={() => updateStatus({ id: req._id, status: 'rejected' })}
-                                            disabled={!isPending}
-                                            className="btn btn-sm btn-error text-white px-4"
-                                        >
-                                            Reject
-                                        </button>
+                                    <button
+                                        onClick={() => updateStatus({
+                                        id: req._id,
+                                        status: 'approved',
+                                        userEmail: req.userEmail,
+                                        requestType: req.requestType
+                                        })}
+                                        disabled={!isPending}
+                                        className={`btn btn-xs md:btn-sm px-4 font-bold transition-all duration-300 ${
+                                        isPending
+                                            ? "btn-success btn-outline hover:bg-success hover:text-white border-2"
+                                            : "bg-base-300 text-base-content border-base-200 cursor-not-allowed"
+                                        }`}
+                                    >
+                                        Accept
+                                    </button>
+
+                                    <button
+                                        onClick={() => updateStatus({ id: req._id, status: 'rejected' })}
+                                        disabled={!isPending}
+                                        className={`btn btn-xs md:btn-sm px-4 font-bold transition-all duration-300 ${
+                                        isPending
+                                            ? "btn-error btn-outline hover:bg-error hover:text-white border-2"
+                                            : "bg-base-300 text-base-content border-base-200 cursor-not-allowed"
+                                        }`}
+                                    >
+                                        Reject
+                                    </button>
                                     </td>
                                 </tr>
                             );
                         })}
                     </tbody>
                 </table>
+                
                 {requests.length === 0 && (
-                    <div className="text-center py-10 text-gray-400">No pending role requests found.</div>
+                    <div className="text-center py-12 text-base-content/40">
+                        <p className="italic">No pending role requests found.</p>
+                    </div>
                 )}
             </div>
         </div>

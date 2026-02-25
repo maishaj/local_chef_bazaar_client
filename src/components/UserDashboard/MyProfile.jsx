@@ -50,7 +50,7 @@ const MyProfile = () => {
     }
 
     return (
-        <div className="flex justify-center p-6 lg:p-12">
+        <div className="flex justify-center p-6 lg:p-12 md:p-12">
             <div className="card w-full max-w-3xl bg-base-100 shadow-2xl border border-base-300">
                 <div className="card-body">
                     <div className="flex flex-col md:flex-row items-center gap-8">

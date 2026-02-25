@@ -1,4 +1,4 @@
-import React, { use } from 'react';
+import React from 'react';
 import star from '../../assets/stars.png';
 import halfStar from '../../assets/halfstar.png';
 import { Link } from 'react-router';
@@ -7,10 +7,10 @@ const MealsCard = ({meal}) => {
 
     const {_id,chefName,foodImage,foodPrice,foodRating,deliveryArea,foodName}=meal;
     return (
-            <div className="card bg-base-100 w-4/5 mx-auto shadow-sm h-[350px]">
+            <div className="card bg-base-200 border border-base-300 w-4/5 mx-auto shadow-sm h-[400px]">
                 <figure>
                     <img
-                    className='h-[250px] w-full object-cover'
+                    className='h-[370px] w-full object-cover'
                     src={foodImage}
                     alt="" />
                 </figure>

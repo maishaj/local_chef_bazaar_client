@@ -65,14 +65,14 @@ const MyReviews = () => {
            <div>
             {
                 reviews.map(review => (
-                    <div key={review._id} className="card bg-base-100 shadow-xl border border-base-200 hover:shadow-2xl transition-all m-5">
+                    <div key={review._id} className="card bg-base-200 shadow-xl border border-base-300 hover:shadow-2xl transition-all m-5">
                         <div className="card-body p-6">
                             <div className="flex justify-between items-start">
                                 <div>
                                     <h2 className="card-title text-xl font-bold text-primary">
                                         {review.foodName || "Unknown Meal"}
                                     </h2>
-                                    <p className="text-xs text-gray-500">
+                                    <p className="text-xs text-base-content/60">
                                         Added on: {new Date(review.date).toLocaleDateString()}
                                     </p>
                                 </div>
@@ -84,7 +84,7 @@ const MyReviews = () => {
                             <div className="divider my-2"></div>
 
                             <div className="space-y-2">
-                                <p className="text-gray-600 italic">
+                                <p className="text-base-content/60 italic">
                                     "{review.comment}"
                                 </p>
                             </div>

@@ -76,66 +76,67 @@ const MealDetails = () => {
                 </div>
 
                
-                <div className="space-y-6">
-                    <div>
-                        <div className="flex items-center gap-2 mb-2">
-                            <div className="badge badge-secondary uppercase tracking-widest text-xs font-bold">Chef Special</div>
-                            <div className="badge badge-outline text-xs font-medium italic">Exp: {chefsExperience}</div>
-                        </div>
-                        <h1 className="text-3xl lg:text-3xl font-bold text-neutral">{foodName}</h1>
-                        <div className="flex flex-col mt-2">
-                            <p className="text-gray-500 italic">
-                                Prepared with love by <span className="text-primary font-bold">Chef {chefName}</span>
-                            </p>
-                            <p className="text-[12px] uppercase tracking-tighter text-gray-400 mt-1">
-                                Chef Identity Code: <span className="font-mono">{chefId}</span>
-                            </p>
-                        </div>
+               <div className="space-y-6">
+                <div>
+                    <div className="flex items-center gap-2 mb-2">
+                        <div className="badge badge-secondary uppercase tracking-widest text-xs font-bold">Chef Special</div>
+                        <div className="badge badge-outline text-xs font-medium italic text-base-content/80">Exp: {chefsExperience}</div>
                     </div>
-
-                  
-                    <div className='flex items-center gap-4'>
-                        <div className='flex gap-1'>
-                            {[...Array(4)].map((_, i) => <img key={i} className='w-5 h-5' src={star} alt="star" />)}
-                            <img className='w-5 h-5' src={halfStar} alt="halfstar" />
-                        </div>
-                        <span className="text-sm text-gray-500 font-medium">(4.5 Rating)</span>
-                    </div>
-
                     
-                    <div className="bg-base-200 p-5 rounded-2xl">
-                        <h3 className="text-lg font-bold mb-3 flex items-center gap-2">
-                             🥘 Ingredients
-                        </h3>
-                        <div className="flex flex-wrap gap-2">
-                            {ingredients?.map((ind, index) => (
-                                <span key={index} className="badge badge-outline badge-md py-3 px-4 font-medium">
-                                    {ind}
-                                </span>
-                            ))}
-                        </div>
-                    </div>
-
+                    <h1 className="text-3xl lg:text-3xl font-bold text-base-content">{foodName}</h1>
                     
-                    <div>
-                        <h3 className="text-lg font-bold">Details</h3>
-                        <p className="text-black mt-2 leading-relaxed">
-                            {foodDetails}
+                    <div className="flex flex-col mt-2">
+                       
+                        <p className="text-base-content/70 italic">
+                            Prepared with love by <span className="text-primary font-bold">Chef {chefName}</span>
+                        </p>
+                      
+                        <p className="text-[12px] uppercase tracking-tighter text-base-content/50 mt-1">
+                            Chef Identity Code: <span className="font-mono">{chefId}</span>
                         </p>
                     </div>
+                </div>
 
-                    
-                    <div className="grid grid-cols-2 gap-4">
-                        <div className="bg-primary/5 border border-primary/10 p-4 rounded-xl">
-                            <p className="text-xs uppercase text-gray-500 font-bold">Delivery Area</p>
-                            <p className="font-semibold">{deliveryArea}</p>
-                        </div>
-                        <div className="bg-primary/5 border border-primary/10 p-4 rounded-xl">
-                            <p className="text-xs uppercase text-gray-500 font-bold">Delivery Time</p>
-                            <p className="font-semibold">{estimatedDeliveryTime}</p>
-                        </div>
+                <div className='flex items-center gap-4'>
+                    <div className='flex gap-1'>
+                        {[...Array(4)].map((_, i) => <img key={i} className='w-5 h-5' src={star} alt="star" />)}
+                        <img className='w-5 h-5' src={halfStar} alt="halfstar" />
                     </div>
+                  
+                    <span className="text-sm text-base-content/60 font-medium">(4.5 Rating)</span>
+                </div>
 
+            <div className="bg-base-200 p-5 rounded-2xl">
+                <h3 className="text-lg font-bold mb-3 flex items-center gap-2 text-base-content">
+                    🥘 Ingredients
+                </h3>
+                <div className="flex flex-wrap gap-2">
+                    {ingredients?.map((ind, index) => (
+                        <span key={index} className="badge badge-outline badge-md py-3 px-4 font-medium text-base-content/90">
+                            {ind}
+                        </span>
+                    ))}
+                </div>
+            </div>
+
+            <div>
+                <h3 className="text-lg font-bold text-base-content">Details</h3>
+                <p className="text-base-content mt-2 leading-relaxed shadow-md p-2 rounded-2xl">
+                    {foodDetails}
+                </p>
+            </div>
+
+            <div className="grid grid-cols-2 gap-4">
+                
+                <div className="bg-base-200 border border-base-300 p-4 rounded-xl">
+                    <p className="text-xs uppercase text-base-content/50 font-bold">Delivery Area</p>
+                    <p className="font-semibold text-base-content">{deliveryArea}</p>
+                </div>
+                <div className="bg-base-200 border border-base-300 p-4 rounded-xl">
+                    <p className="text-xs uppercase text-base-content/50 font-bold">Delivery Time</p>
+                    <p className="font-semibold text-base-content">{estimatedDeliveryTime}</p>
+                </div>
+            </div>
                     <div className='flex flex-row justify-center md:block lg:block'>
                         {
                         isFraud ? 

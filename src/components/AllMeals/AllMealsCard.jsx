@@ -11,7 +11,7 @@ const AllMealsCard = ({meal}) => {
     
 
     return (
-        <div className="card bg-base-100 w-full mx-auto shadow-sm h-full">
+        <div className="card bg-base-200 border border-base-300 w-full mx-auto shadow-sm h-full">
             <figure>
                 <img
                 className='h-[250px] w-full object-cover'

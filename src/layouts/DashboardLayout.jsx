@@ -9,6 +9,7 @@ import { TbTruckDelivery } from "react-icons/tb";
 import { LuMessageSquareQuote } from "react-icons/lu";
 import { FcStatistics } from "react-icons/fc";
 import DynamicTitle from '../components/DynamicTitle/DynamicTitle';
+import { GoCodeReview } from "react-icons/go";
 import useRole from '../hooks/useRole';
 
 const DashboardLayout = () => {
@@ -100,6 +101,7 @@ const DashboardLayout = () => {
                                 <>
                                     <li><NavLink to="/dashboard/manage-users" className={navLinkStyles} data-tip="Manage Users"><FaUserCog className="size-5" /> <span>Manage Users</span></NavLink></li>
                                     <li><NavLink to="/dashboard/manage-requests" className={navLinkStyles} data-tip="Manage Request"><LuMessageSquareQuote className="size-5" /> <span>Manage Request</span></NavLink></li>
+                                    <li><NavLink to="/dashboard/manage-reviews" className={navLinkStyles} data-tip="Manage Reviews"><GoCodeReview className="size-5" /> <span>Manage Reviews</span></NavLink></li>
                                     <li><NavLink to="/dashboard/platform-statistics" className={navLinkStyles} data-tip="Statistics"><FcStatistics className="size-5" /> <span>Platform Statistics</span></NavLink></li>
                                 </>
                             )}

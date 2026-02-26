@@ -24,6 +24,7 @@ import ManageRequests from "../components/AdminDashboard/ManageRequests";
 import PlatformStatistics from "../components/AdminDashboard/PlatformStatistics";
 import Error from "../components/Error/Error";
 import AboutLayout from "../layouts/AboutLayout";
+import ManageReviews from '../components/AdminDashboard/ManageReviews'
 
 
 export const router = createBrowserRouter([
@@ -109,6 +110,10 @@ export const router = createBrowserRouter([
         path: "platform-statistics",
         element: <PlatformStatistics></PlatformStatistics>,
       },
+      {
+        path:"manage-reviews",
+        element:<ManageReviews></ManageReviews>
+      }
     ],
   },
 

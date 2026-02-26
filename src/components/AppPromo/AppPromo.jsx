@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 
 
 const AppPromo = () => {
@@ -22,7 +23,7 @@ const AppPromo = () => {
 
                         
                         <div className="flex flex-wrap justify-center lg:justify-start gap-4">
-                            <button className="flex items-center gap-2 bg-black text-white px-3 py-3 rounded-xl hover:scale-105 transition-transform">
+                            <a href="https://www.apple.com/app-store/" target='_blank' className="flex items-center gap-2 bg-black text-white px-3 py-3 rounded-xl hover:scale-105 transition-transform">
                                 <img 
                                     src="https://upload.wikimedia.org/wikipedia/commons/3/31/Apple_logo_white.svg" 
                                     className="w-5" 
@@ -32,8 +33,8 @@ const AppPromo = () => {
                                     <p className="text-[8px] uppercase opacity-60 leading-none">Download on the</p>
                                     <p className="text-sm font-bold leading-none font-sans">App Store</p>
                                 </div>
-                            </button>
-                            <button className="flex items-center gap-2 bg-black text-white px-3 py-3 rounded-xl hover:scale-105 transition-transform">
+                            </a>
+                            <a href="https://play.google.com/store/games?hl=en" target='_blank' className="flex items-center gap-2 bg-black text-white px-3 py-3 rounded-xl hover:scale-105 transition-transform">
                                 <img 
                                     src="https://upload.wikimedia.org/wikipedia/commons/d/d0/Google_Play_Arrow_logo.svg" 
                                     className="w-5" 
@@ -43,7 +44,7 @@ const AppPromo = () => {
                                     <p className="text-[8px] uppercase opacity-60 leading-none">Get it on</p>
                                     <p className="text-sm font-bold leading-none font-sans">Google Play</p>
                                 </div>
-                            </button>
+                            </a>
                         </div>
                     </div>
 

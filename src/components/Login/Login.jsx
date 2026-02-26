@@ -96,7 +96,7 @@ const Login = () => {
                         />
                         {errors.password && <p className="text-error text-xs mt-1 font-medium">{errors.password.message}</p>}
 
-                        {/* DEMO LOGIN BUTTONS SECTION */}
+                        
                         <div className="mt-4 p-3 bg-base-200 rounded-xl border border-dashed border-base-300">
                             <p className="text-[10px] font-black uppercase tracking-widest text-base-content/40 mb-2">Quick Demo Login</p>
                             <div className="flex gap-2">
@@ -138,7 +138,6 @@ const Login = () => {
                             onClick={handleGoogle} 
                             className="btn btn-outline border-base-200 hover:bg-base-200 text-base-content w-full flex items-center justify-center gap-3"
                         >
-                            {/* Google SVG Code stays here */}
                             Google
                         </button>
                     </fieldset>

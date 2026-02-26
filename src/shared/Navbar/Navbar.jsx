@@ -34,6 +34,10 @@ const Navbar = () => {
       <li><NavLink to="/">Home</NavLink></li>
       <li><NavLink to="/meals">Meals</NavLink></li>
       <li><NavLink to="/about">About</NavLink></li>
+      {
+        user &&  <li><NavLink to="/contact">Contact Us</NavLink></li>
+      }
+      <li><NavLink to="/terms-and-conditions">Terms</NavLink></li>
       {user && <li><NavLink to="/dashboard">Dashboard</NavLink></li>}
       <li className="lg:hidden mt-2">
         <input

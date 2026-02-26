@@ -11,6 +11,7 @@ import { FcStatistics } from "react-icons/fc";
 import DynamicTitle from '../components/DynamicTitle/DynamicTitle';
 import { GoCodeReview } from "react-icons/go";
 import useRole from '../hooks/useRole';
+import ThemeToggle from '../components/ThemeToggle/ThemeToggle';
 
 const DashboardLayout = () => {
     const { role } = useRole();
@@ -60,8 +61,9 @@ const DashboardLayout = () => {
                     <label htmlFor="my-drawer-4" aria-label="close sidebar" className="drawer-overlay"></label>
                     <div className="flex min-h-full flex-col bg-base-100 border-r border-base-300 w-64 lg:w-72">
                         
-                        <div className="p-6 mb-2">
-                             <p className="text-[20px] uppercase tracking-[0.2em] font-bold text-base-content/40">Menu</p>
+                        <div className="p-6 mb-2 flex">
+                            <p className="text-[20px] uppercase tracking-[0.2em] font-bold text-base-content/40">Menu</p>
+                            <ThemeToggle></ThemeToggle>
                         </div>
 
                         <ul className="menu w-full px-4 space-y-2 grow">

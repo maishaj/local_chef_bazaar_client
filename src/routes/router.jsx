@@ -25,6 +25,8 @@ import PlatformStatistics from "../components/AdminDashboard/PlatformStatistics"
 import Error from "../components/Error/Error";
 import AboutLayout from "../layouts/AboutLayout";
 import ManageReviews from '../components/AdminDashboard/ManageReviews'
+import TermsAndConditions from "../components/TermsAndConditions/TermsAndConditions";
+import Contact from "../components/Contact/Contact";
 
 
 export const router = createBrowserRouter([
@@ -36,6 +38,14 @@ export const router = createBrowserRouter([
   {
     path:"/about",
     element:<AboutLayout></AboutLayout>
+  },
+  {
+    path:"/terms-and-conditions",
+    element:<TermsAndConditions></TermsAndConditions>
+  },
+  {
+    path:"/contact",
+    element:<Contact></Contact>
   },
   {
     path: "/auth",

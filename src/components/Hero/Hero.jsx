@@ -4,7 +4,7 @@ import { Link } from 'react-router';
 
 const Hero = () => {
   return (
-    <section className="relative w-full h-[60vh] md:h-[70vh] overflow-hidden bg-base-200" style={{ fontFamily: '"Roboto Slab", serif' }}>
+    <section className="relative w-full h-[60vh] md:h-[70vh] overflow-hidden bg-base-200">
             {/* DaisyUI Carousel / Slider */}
             <div className="carousel w-full h-full">
                 

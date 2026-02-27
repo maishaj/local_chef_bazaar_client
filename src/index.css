@@ -2,47 +2,43 @@
 @import "tailwindcss";
 @plugin "daisyui";
 
-
 @plugin "daisyui/theme" {
   name: "light";
   default: true;
-  --color-primary: #f97416;
+  --color-primary: #059669;
   --color-base-100: #ffffff;
-  --color-base-200: ##ffffff; 
-  --color-neutral: #E8F0FE;
+  --color-base-200: #ffffff;
+  --color-neutral: #e8f0fe;
   --color-base-content: #0f172a;
 }
 
 @plugin "daisyui/theme" {
   name: "dark";
-  --color-primary: #ea580c; 
-  
-  /* Text on top of Orange Buttons - Pure White */
+  --color-primary: #ea580c;
+
   --color-primary-content: #ffffff;
 
-  /* Backgrounds */
-  --color-base-100: #020617; /* Deepest Navy - "The Floor" */
-  --color-base-200: #1e293b; /* Lighter Slate - "The Card" */
-  --color-base-300: #334155; /* Even Lighter - "The Border" */
-  --color-neutral : #1e293b;
-  
-  /* GLOBAL TEXT COLOR - This makes 'text-base-content' white */
-  --color-base-content: #ffffff; 
+  /* BacFkgrounds */
+  --color-base-100: #020617;
+  --color-base-200: #1e293b;
+  --color-base-300: #334155;
+  --color-neutral:  #1e293b;
 
-  /* Neutral colors for secondary elements */
+  --color-base-content: #ffffff;
+
   --color-neutral: #1e293b;
   --color-neutral-content: #ffffff;
 }
 
 body {
-  font-family: "Roboto Slab", serif;
+  font-family: "Roboto Slab",serif;
   font-optical-sizing: auto;
   font-style: normal;
 }
 .my-btn {
-  background-color: #f97416;
+  background-color: #059669;
 }
 .my-btn:hover {
-  background-color: #e67e0d;
+  background-color: #047857;
 }
 

@@ -23,7 +23,7 @@ const Newsletter = () => {
     }
 
     return (
-        <div className='bg-neutral border border-base-300 rounded-3xl w-10/12 mx-auto h-auto m-10 p-12 space-y-10 flex flex-col items-center'>
+        <div className='bg-neutral border border-base-300 rounded-3xl w-11/12 mt-24 mb-24 mx-auto h-auto p-12 space-y-10 flex flex-col items-center'>
             <h1 className='text-4xl font-semibold'>Newsletter</h1>
             <p className='text-xl text-center'>Join our "Foodie Club" and we’ll send a secret discount code straight to your inbox every Friday.</p>
             <form onSubmit={handleSubmit(handleNewsletter)} className='flex flex-col md:flex-row lg:flex-row gap-2'>

@@ -24,10 +24,12 @@ import ManageRequests from "../components/AdminDashboard/ManageRequests";
 import PlatformStatistics from "../components/AdminDashboard/PlatformStatistics";
 import Error from "../components/Error/Error";
 import AboutLayout from "../layouts/AboutLayout";
-import ManageReviews from '../components/AdminDashboard/ManageReviews'
+import ManageReviews from "../components/AdminDashboard/ManageReviews";
 import TermsAndConditions from "../components/TermsAndConditions/TermsAndConditions";
 import Contact from "../components/Contact/Contact";
-
+import AdminRoute from "./AdminRoute";
+import ChefRoute from "./ChefRoute";
+import UserRoute from "./UserRoute";
 
 export const router = createBrowserRouter([
   {
@@ -36,16 +38,16 @@ export const router = createBrowserRouter([
     errorElement: <Error></Error>,
   },
   {
-    path:"/about",
-    element:<AboutLayout></AboutLayout>
+    path: "/about",
+    element: <AboutLayout></AboutLayout>,
   },
   {
-    path:"/terms-and-conditions",
-    element:<TermsAndConditions></TermsAndConditions>
+    path: "/terms-and-conditions",
+    element: <TermsAndConditions></TermsAndConditions>,
   },
   {
-    path:"/contact",
-    element:<Contact></Contact>
+    path: "/contact",
+    element: <Contact></Contact>,
   },
   {
     path: "/auth",
@@ -78,19 +80,31 @@ export const router = createBrowserRouter([
       },
       {
         path: "my-profile",
-        element: <MyProfile></MyProfile>,
+        element:<MyProfile></MyProfile>,
       },
       {
         path: "my-orders",
-        element: <MyOrders></MyOrders>,
+        element: (
+          <UserRoute>
+            <MyOrders></MyOrders>,
+         </UserRoute>
+        ),
       },
       {
         path: "my-reviews",
-        element: <MyReviews></MyReviews>,
+        element: (
+          <UserRoute>
+            <MyReviews></MyReviews>,
+          </UserRoute>
+        ),
       },
       {
         path: "my-favourites",
-        element: <MyFavourites></MyFavourites>,
+        element: (
+          <UserRoute>
+            <MyFavourites></MyFavourites>,
+          </UserRoute>
+        ),
       },
       {
         path: "payment-success",
@@ -98,32 +112,60 @@ export const router = createBrowserRouter([
       },
       {
         path: "create-meal",
-        element: <CreateMeal></CreateMeal>,
+        element: (
+          <ChefRoute>
+            <CreateMeal></CreateMeal>,
+          </ChefRoute>
+        ),
       },
       {
         path: "my-meal",
-        element: <MyMeals></MyMeals>,
+        element: (
+          <ChefRoute>
+            <MyMeals></MyMeals>,
+          </ChefRoute>
+        ),
       },
       {
         path: "order-request",
-        element: <OrderRequests></OrderRequests>,
+        element: (
+          <ChefRoute>
+            <OrderRequests></OrderRequests>
+          </ChefRoute>
+        ),
       },
       {
         path: "manage-users",
-        element: <ManageUsers></ManageUsers>,
+        element: (
+          <AdminRoute>
+            <ManageUsers></ManageUsers>
+          </AdminRoute>
+        ),
       },
       {
         path: "manage-requests",
-        element: <ManageRequests></ManageRequests>,
+        element: (
+          <AdminRoute>
+            <ManageRequests></ManageRequests>,
+          </AdminRoute>
+        ),
       },
       {
         path: "platform-statistics",
-        element: <PlatformStatistics></PlatformStatistics>,
+        element: (
+          <AdminRoute>
+            <PlatformStatistics></PlatformStatistics>,
+          </AdminRoute>
+        ),
       },
       {
-        path:"manage-reviews",
-        element:<ManageReviews></ManageReviews>
-      }
+        path: "manage-reviews",
+        element: (
+          <AdminRoute>
+            <ManageReviews></ManageReviews>,
+          </AdminRoute>
+        ),
+      },
     ],
   },
 
@@ -138,15 +180,15 @@ export const router = createBrowserRouter([
       },
       {
         path: "meal-details/:id",
-        element: (
-          <PrivateRoute>
-            <MealDetails></MealDetails>,
-          </PrivateRoute>
-        ),
+        element: <MealDetails></MealDetails>,
       },
       {
         path: "meal-details/:id/place-order",
-        element: <OrderPage></OrderPage>,
+        element: (
+          <PrivateRoute>
+            <OrderPage></OrderPage>,
+          </PrivateRoute>
+        ),
       },
     ],
   },

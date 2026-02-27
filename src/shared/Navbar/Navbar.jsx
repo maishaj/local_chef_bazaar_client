@@ -31,14 +31,28 @@ const Navbar = () => {
 
   const links = (
     <>
-      <li><NavLink to="/">Home</NavLink></li>
-      <li><NavLink to="/meals">Meals</NavLink></li>
-      <li><NavLink to="/about">About</NavLink></li>
-      {
-        user &&  <li><NavLink to="/contact">Contact Us</NavLink></li>
-      }
-      <li><NavLink to="/terms-and-conditions">Terms</NavLink></li>
-      {user && <li><NavLink to="/dashboard">Dashboard</NavLink></li>}
+      <li>
+        <NavLink to="/">Home</NavLink>
+      </li>
+      <li>
+        <NavLink to="/meals">Meals</NavLink>
+      </li>
+      <li>
+        <NavLink to="/about">About</NavLink>
+      </li>
+      {user && (
+        <li>
+          <NavLink to="/contact">Contact Us</NavLink>
+        </li>
+      )}
+      <li>
+        <NavLink to="/terms-and-conditions">Terms</NavLink>
+      </li>
+      {user && (
+        <li>
+          <NavLink to="/dashboard">Dashboard</NavLink>
+        </li>
+      )}
       <li className="lg:hidden mt-2">
         <input
           onChange={handleSearch}
@@ -56,28 +70,48 @@ const Navbar = () => {
       {/* Navbar Start: Logo and Mobile Menu */}
       <div className="navbar-start">
         <div className="dropdown">
-          <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden p-1">
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" />
+          <div
+            tabIndex={0}
+            role="button"
+            className="btn btn-ghost lg:hidden p-1"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M4 6h16M4 12h8m-8 6h16"
+              />
             </svg>
           </div>
-          <ul tabIndex={0} className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[10] mt-3 w-52 p-2 shadow border border-base-200">
+          <ul
+            tabIndex={0}
+            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[10] mt-3 w-52 p-2 shadow border border-base-200"
+          >
             {links}
           </ul>
         </div>
-        
+
         {/* Logo Section */}
         <Link to="/" className="flex items-center gap-1 md:gap-2 ml-1">
-          <img src={logoImg} alt="Logo" className="w-8 h-8 md:w-10 md:h-10 object-contain" />
+          <img
+            src={logoImg}
+            alt="Logo"
+            className="w-8 h-8 md:w-10 md:h-10 object-contain"
+          />
           <span className="font-bold text-sm md:text-xl">Chef Bazaar</span>
         </Link>
       </div>
 
       {/* Navbar Center: Desktop Links and Desktop Search */}
       <div className="navbar-center hidden lg:flex items-center gap-4">
-        <ul className="menu menu-horizontal px-1 gap-2 font-medium">
-          {links}
-        </ul>
+        <ul className="menu menu-horizontal px-1 gap-2 font-medium">{links}</ul>
         <div className="relative">
           <input
             onChange={handleSearch}
@@ -96,34 +130,39 @@ const Navbar = () => {
         </div>
 
         {user ? (
-        
           <div className="dropdown dropdown-end">
-           
-            <div 
-              tabIndex={0} 
-              role="button" 
+            <div
+              tabIndex={0}
+              role="button"
               className="avatar btn btn-ghost btn-circle"
             >
-              <div className="w-9 rounded-full ring-2 ring-[#f97416] ring-offset-base-100 ring-offset-2">
-                <img src={user?.photoURL || "https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"} alt="Profile" />
+              <div className="w-9 rounded-full ring-2 ring-[#059669] ring-offset-base-100 ring-offset-2">
+                <img
+                  src={
+                    user?.photoURL ||
+                    "https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
+                  }
+                  alt="Profile"
+                />
               </div>
             </div>
 
-           
             <ul
               tabIndex={0}
               className="menu menu-sm dropdown-content bg-base-200 rounded-box z-50 mt-3 w-40 p-2 shadow-2xl border border-base-300"
-              style={{ fontFamily: '"Roboto Slab", serif' }}
             >
               <li className="mt-2">
-                <Link to="/dashboard/my-profile" className="hover:text-[#f97416] py-2">
+                <Link
+                  to="/dashboard/my-profile"
+                  className="hover:text-[#059669] py-2"
+                >
                   My Profile
                 </Link>
               </li>
 
               <li className="p-1">
-                <button 
-                  onClick={handleLogout} 
+                <button
+                  onClick={handleLogout}
                   className="btn btn-sm my-btn text-white border-none w-full"
                 >
                   Logout
@@ -132,9 +171,8 @@ const Navbar = () => {
             </ul>
           </div>
         ) : (
-         
-          <Link 
-            className="btn btn-xs md:btn-sm my-btn text-white border-none" 
+          <Link
+            className="btn btn-xs md:btn-sm my-btn text-white border-none"
             to="/auth/login"
           >
             Login

@@ -52,7 +52,6 @@ const Register = () => {
             navigate("/");
 
         } catch (error) {
-            console.error(error);
             if (error.code === 'auth/email-already-in-use') {
                 toast.error("This email is already registered.");
             } else {

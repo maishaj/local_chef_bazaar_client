@@ -20,7 +20,7 @@ import Loading from "../../shared/Loading/Loading";
 const MealDetails = () => {
   const { id } = useParams();
   const axiosSecure = useAxiosSecure();
-  const { user } = useAuth();
+  const { user,loading } = useAuth();
 
   const { data: meal = {}, isLoading } = useQuery({
     queryKey: ["meals", id],
@@ -57,7 +57,6 @@ const MealDetails = () => {
 
   const { data: dbUser } = useQuery({
     queryKey: ["user-db", user?.email],
-    enabled: !!user?.email,
     queryFn: async () => {
       const res = await axiosSecure.get(`/users/${user.email}`);
       return res.data;

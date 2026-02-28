@@ -7,7 +7,7 @@ import useAuth from '../../hooks/useAuth'
 import toast from 'react-hot-toast';
 
 const AddReview = ({ foodName }) => {
-    const { user } = useAuth();
+    const { user,loading } = useAuth();
     const axiosSecure = useAxiosSecure();
     const { id } = useParams();
 
@@ -47,7 +47,7 @@ const AddReview = ({ foodName }) => {
                 toast.success("Feedback submitted successfully!");
             }
         } catch (error) {
-            toast.error("Failed to post review.");
+            toast.error("You are not logged in!");
         } finally {
             setIsSubmitting(false);
         }

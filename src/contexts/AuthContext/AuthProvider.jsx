@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { AuthContext } from './AuthContext';
-import { createUserWithEmailAndPassword, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from 'firebase/auth';
+import { createUserWithEmailAndPassword, GoogleAuthProvider, onAuthStateChanged, sendPasswordResetEmail, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from 'firebase/auth';
 import { auth } from '../../firebase/firebase.init';
+import axios from 'axios';
 
 
 const AuthProvider = ({children}) => {
@@ -38,11 +39,16 @@ const AuthProvider = ({children}) => {
       return updateProfile(auth.currentUser,profile);
    }
 
+   //Send a password reset email
+   const passwordReset=(email)=>{
+     return sendPasswordResetEmail(auth,email);
+   }
+
    //Observer
    useEffect(()=>{
       const unsubscribe=onAuthStateChanged(auth,(currentUser)=>{
-         setLoading(false);
          setUser(currentUser);
+         setLoading(false);
       })
       return ()=>{
          unsubscribe();
@@ -57,7 +63,8 @@ const AuthProvider = ({children}) => {
        googleSignIn,
        logOut,
        updateUserProfile,
-       setLoading
+       setLoading,
+       passwordReset
     }
 
     return (

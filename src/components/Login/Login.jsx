@@ -23,7 +23,11 @@ const Login = () => {
         if (role === 'admin') {
             setValue("email", "samiha@gmail.com");
             setValue("password", "Samiha@123");
-        } else {
+        } else if(role==="chef"){
+            setValue("email", "ahnaf@gmail.com");
+            setValue("password", "Ahnaf@123");
+        }
+         else {
             setValue("email", "maliha@gmail.com");
             setValue("password", "Maliha@123");
         }
@@ -64,7 +68,6 @@ const Login = () => {
             toast.success("You logged in successfully!");
             navigate(location?.state || "/");
         } catch (error) {
-            console.error("Google Login Error:", error);
             toast.error("Failed to login.");
         }
     };
@@ -111,11 +114,19 @@ const Login = () => {
                                 </button>
                                 <button 
                                     type="button" 
+                                    onClick={() => setDemo('chef')} 
+                                    className="btn btn-xs flex-1 bg-white border-base-300 hover:bg-emerald-50 text-emerald-700"
+                                >
+                                    <FaUserAlt className="text-[10px]" /> Chef
+                                </button>
+                                <button 
+                                    type="button" 
                                     onClick={() => setDemo('user')} 
                                     className="btn btn-xs flex-1 bg-white border-base-300 hover:bg-emerald-50 text-emerald-700"
                                 >
                                     <FaUserAlt className="text-[10px]" /> User
                                 </button>
+    
                             </div>
                         </div>
 

@@ -52,43 +52,41 @@ const AllMeals = () => {
     { label: "3.5+ ⭐", value: "3.5" },
   ];
 
-  if(isLoading){
-     return <Loading></Loading>
-  }
+  if (isLoading) return <Loading />;
 
   return (
-    <div className="bg-white dark:bg-neutral-950 min-h-screen pb-20 font-sans">
-      {/* Minimal Header */}
-      <div className="max-w-[1440px] mx-auto px-6 pt-12 pb-6 border-b border-gray-100 dark:border-white/5">
-        <h2 className="text-3xl font-extrabold text-neutral-900 dark:text-white">
-          {searchTerm ? `Search: ${searchTerm}` : "Explore All Meals"}
+    <div className="bg-base-100 min-h-screen pb-20 transition-colors duration-300">
+      {/* Header Section */}
+      <div className="max-w-[1440px] mx-auto px-6 pt-12 pb-6 border-b border-base-200">
+        <h2 className="text-3xl font-black text-base-content">
+          {searchTerm ? `Search Results for "${searchTerm}"` : "Explore Our Menu"}
         </h2>
-        <p className="text-sm text-gray-400 mt-1 font-medium">
-          {totalCount} available in your region
+        <p className="text-sm text-base-content/50 mt-1 font-bold italic">
+          {totalCount} delicious meals found
         </p>
       </div>
 
-      <div className="max-w-[1440px] mx-auto px-6 mt-10 flex flex-col lg:flex-row gap-10">
-        {/* SIDEBAR */}
+      <div className="max-w-[1440px] mx-auto px-6 mt-10 flex flex-col lg:flex-row gap-12">
+        {/* SIDEBAR FILTERS */}
         <aside className="lg:w-64 flex-shrink-0">
-          <div className="sticky top-24 space-y-10">
+          <div className="sticky top-24 space-y-12">
             {/* Area Filter */}
             <div>
-              <h3 className="text-xs font-black uppercase tracking-widest text-neutral-900 dark:text-gray-400 mb-5 flex items-center gap-2">
-                <FaMapMarkerAlt className="text-[#059669]" /> Location
+              <h3 className="text-[10px] font-black uppercase tracking-[0.2em] text-base-content/40 mb-5 flex items-center gap-2">
+                <FaMapMarkerAlt className="text-primary" /> Delivery Area
               </h3>
               <div className="flex flex-col gap-2">
                 <button
                   onClick={() => setSelectedArea("")}
-                  className={`text-left px-4 py-3 rounded-xl text-sm font-bold transition-all ${selectedArea === "" ? "bg-[#059669] text-white shadow-lg shadow-orange-500/20" : "bg-gray-50 dark:bg-neutral-900 hover:bg-gray-100 text-neutral-600"}`}
+                  className={`text-left px-5 py-3 rounded-2xl text-xs font-black transition-all ${selectedArea === "" ? "bg-primary text-white shadow-lg shadow-primary/20" : "bg-base-200 hover:bg-base-300 text-base-content/70"}`}
                 >
-                  Everywhere
+                  All Areas
                 </button>
                 {areas.map((area) => (
                   <button
                     key={area}
                     onClick={() => setSelectedArea(area)}
-                    className={`text-left px-4 py-3 rounded-xl text-sm font-bold transition-all ${selectedArea === area ? "bg-[#059669] text-white shadow-lg shadow-orange-500/20" : "bg-gray-50 dark:bg-neutral-900 hover:bg-gray-100 text-neutral-600"}`}
+                    className={`text-left px-5 py-3 rounded-2xl text-xs font-black transition-all ${selectedArea === area ? "bg-primary text-white shadow-lg shadow-primary/20" : "bg-base-200 hover:bg-base-300 text-base-content/70"}`}
                   >
                     {area}
                   </button>
@@ -98,25 +96,20 @@ const AllMeals = () => {
 
             {/* Rating Filter */}
             <div>
-              <h3 className="text-xs font-black uppercase tracking-widest text-neutral-900 dark:text-gray-400 mb-5 flex items-center gap-2">
-                <FaStar className="text-yellow-500" /> Ratings
+              <h3 className="text-[10px] font-black uppercase tracking-[0.2em] text-base-content/40 mb-5 flex items-center gap-2">
+                <FaStar className="text-yellow-500" /> Minimum Rating
               </h3>
-              <div className="space-y-3">
+              <div className="space-y-4 px-2">
                 {ratings.map((r) => (
-                  <label
-                    key={r.value}
-                    className="flex items-center gap-3 cursor-pointer group"
-                  >
+                  <label key={r.value} className="flex items-center gap-3 cursor-pointer group">
                     <input
                       type="radio"
                       name="rating"
-                      className="radio radio-sm radio-primary"
+                      className="radio radio-sm radio-primary border-base-content/20"
                       checked={selectedRating === r.value}
                       onChange={() => setSelectedRating(r.value)}
                     />
-                    <span
-                      className={`text-sm font-bold ${selectedRating === r.value ? "text-neutral-900" : "text-gray-500 group-hover:text-neutral-700"}`}
-                    >
+                    <span className={`text-sm font-bold ${selectedRating === r.value ? "text-primary" : "text-base-content/60 group-hover:text-base-content"}`}>
                       {r.label}
                     </span>
                   </label>
@@ -130,69 +123,58 @@ const AllMeals = () => {
                 setSelectedRating("");
                 setOrder("desc");
               }}
-              className="flex items-center gap-2 text-xs font-bold text-red-500 hover:underline uppercase"
+              className="flex items-center gap-2 text-[10px] font-black text-rose-500 hover:text-rose-600 uppercase tracking-widest pl-2"
             >
-              <FaRedo /> Reset filters
+              <FaRedo /> Clear Filters
             </button>
           </div>
         </aside>
 
+        {/* MAIN MEALS GRID */}
         <main className="flex-1">
           <div className="flex justify-end items-center mb-8">
-            <div className="flex items-center gap-2 bg-gray-50 dark:bg-neutral-900 px-4 py-2 rounded-full border border-gray-100 dark:border-white/5 shadow-sm">
-              <FaSortAmountDown className="text-gray-400 text-xs" />
-              <span className="text-[10px] font-black uppercase tracking-tighter text-gray-400">
-                Sort:
+            <div className="flex items-center gap-3 bg-base-200 px-5 py-2.5 rounded-full border border-base-300 shadow-sm">
+              <FaSortAmountDown className="text-primary text-xs" />
+              <span className="text-[10px] font-black uppercase tracking-tighter text-base-content/40">
+                Sort By:
               </span>
               <select
-                value={order}
-                onChange={(e) => setOrder(e.target.value)}
-                className="bg-transparent text-xs font-bold text-neutral-900 dark:text-white focus:outline-none cursor-pointer pr-2"
-              >
-                <option value="desc" className="font-bold">
-                  Price: High to Low
-                </option>
-                <option value="asc" className="font-bold">
-                  Price: Low to High
-                </option>
-              </select>
+              value={order}
+              onChange={(e) => setOrder(e.target.value)}
+              className="bg-transparent text-xs font-black text-base-content focus:outline-none cursor-pointer"
+            >
+              <option value="desc" className="bg-base-100 text-base-content">
+                Price: High to Low
+              </option>
+              <option value="asc" className="bg-base-100 text-base-content">
+                Price: Low to High
+              </option>
+            </select>
             </div>
           </div>
 
-          {/* Grid - 4 Columns */}
-          {isLoading ? (
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-6">
-              {[...Array(8)].map((_, i) => (
-                <div
-                  key={i}
-                  className="h-72 w-full bg-gray-100 dark:bg-neutral-800 animate-pulse rounded-2xl"
-                ></div>
-              ))}
-            </div>
-          ) : (
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-6">
-              {meals.length > 0 ? (
-                meals.map((meal) => <AllMealsCard meal={meal} key={meal._id} />)
-              ) : (
-                <div className="col-span-full py-32 text-center bg-gray-50 rounded-3xl border border-dashed border-gray-200">
-                  <h3 className="text-xl font-bold text-gray-400 italic">
-                    No matches found. Try resetting filters.
-                  </h3>
-                </div>
-              )}
-            </div>
-          )}
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-8">
+            {meals.length > 0 ? (
+              meals.map((meal) => <AllMealsCard meal={meal} key={meal._id} />)
+            ) : (
+              <div className="col-span-full py-32 text-center bg-base-200 rounded-[3rem] border-2 border-dashed border-base-300">
+                <h3 className="text-xl font-bold text-base-content/30 italic">
+                  No meals found matching your criteria.
+                </h3>
+              </div>
+            )}
+          </div>
 
-          {/* Pagination */}
+          {/* PAGINATION */}
           {totalPages > 1 && (
-            <div className="mt-20 flex justify-center items-center gap-4">
+            <div className="mt-20 flex justify-center items-center gap-6">
               <button
                 disabled={currentPage === 1}
                 onClick={() => {
                   setCurrentPage((prev) => prev - 1);
                   window.scrollTo({ top: 0, behavior: "smooth" });
                 }}
-                className="btn btn-circle btn-ghost btn-sm border border-gray-200"
+                className="btn btn-circle btn-ghost border-base-300 text-base-content disabled:opacity-30"
               >
                 ❮
               </button>
@@ -205,7 +187,7 @@ const AllMeals = () => {
                       setCurrentPage(i + 1);
                       window.scrollTo({ top: 0, behavior: "smooth" });
                     }}
-                    className={`w-8 h-8 rounded-lg text-xs font-black transition-all ${currentPage === i + 1 ? "bg-neutral-900 text-white shadow-lg" : "bg-gray-100 hover:bg-gray-200"}`}
+                    className={`w-10 h-10 rounded-xl text-xs font-black transition-all ${currentPage === i + 1 ? "bg-primary text-white shadow-xl shadow-primary/30" : "bg-base-200 hover:bg-base-300 text-base-content/60"}`}
                   >
                     {i + 1}
                   </button>
@@ -218,7 +200,7 @@ const AllMeals = () => {
                   setCurrentPage((prev) => prev + 1);
                   window.scrollTo({ top: 0, behavior: "smooth" });
                 }}
-                className="btn btn-circle btn-ghost btn-sm border border-gray-200"
+                className="btn btn-circle btn-ghost border-base-300 text-base-content disabled:opacity-30"
               >
                 ❯
               </button>

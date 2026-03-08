@@ -1,14 +1,12 @@
 # 🍲 LocalChefBazaar – Client
 
-A modern **full-stack MERN marketplace platform** that connects **local home chefs with customers** looking for fresh, homemade meals.
+## 📌 Project Overview
 
-Customers can browse meals, place orders, leave reviews, and track order status, while chefs can manage meals and handle orders through an intuitive dashboard.
-
-The project focuses on **supporting local chefs, promoting healthy food, and creating a transparent food marketplace.**
+**LocalChefBazaar** is a full-stack MERN marketplace platform that connects local home chefs with customers looking for fresh homemade meals. Customers can browse meals, place orders, and leave reviews, while chefs manage meals and orders through a dashboard. Admins oversee users and platform activities through a secure role-based system.
 
 ---
 
-# 🔗 Project Links
+## 🔗 Project Links
 
 - **Live Site:** https://local-chef-bazaar-27127.web.app
 - **Client Repository:** https://github.com/maishaj/local_chef_bazaar_client
@@ -18,76 +16,71 @@ The project focuses on **supporting local chefs, promoting healthy food, and cre
 
 # ✨ Key Features
 
-## 👤 Authentication
-
+### 👤 Authentication
 - Email & Password login
-- Google authentication
-- Firebase authentication integration
-- Protected routes for authenticated users
+- Google Authentication
+- Firebase Authentication
+- Protected routes
 
-## 🍽️ Meal Marketplace
-
-- Browse meals created by local chefs
+### 🍽️ Meal Marketplace
+- Browse meals created by chefs
 - View detailed meal information
 - Search and filter meals
-- Dynamic meal listings
 
-## 🛒 Order System
-
+### 🛒 Order System
 - Add meals to cart
-- Secure checkout process
-- Order tracking
-- Order history for users
+- Place orders
+- Track order history
 
-## ⭐ Reviews & Ratings
+### ⭐ Reviews & Ratings
+- Users can rate meals
+- Review system for feedback
 
-- Customers can leave reviews
-- Rating system for meals
-- Helps other users make informed decisions
-
-## 👨‍🍳 Chef Dashboard
-
+### 👨‍🍳 Chef Dashboard
 - Add new meals
-- Update meal information
+- Update meals
 - Delete meals
-- Manage customer orders
+- Manage orders
 
-## 🛠 Admin Dashboard
-
-- Manage platform users
+### 🛠 Admin Dashboard
+- Manage users
 - Handle role requests
-- Monitor platform activity
-- Manage meals and orders
-
-## 📊 Role Based System
-
-Three types of roles exist in the system:
-
-- **Customer**
-- **Chef**
-- **Admin**
-
-Each role has **different permissions and dashboard features.**
+- Monitor platform activities
 
 ---
 
-# 🛠 Tech Stack
-
-## Frontend
+# 🛠 Main Technologies
 
 - React.js
-- React Router
-- Tailwind CSS
-- DaisyUI
-- Axios
-- Firebase Authentication
-
-## Backend
-
 - Node.js
 - Express.js
 - MongoDB
-- JWT Authentication
+- Firebase Authentication
+- Tailwind CSS
+- DaisyUI
+
+---
+
+# 📦 Dependencies
+
+Main dependencies used in this project:
+
+- react
+- react-router-dom
+- axios
+- firebase
+- react-hook-form
+- sweetalert2
+- react-icons
+- daisyui
+- tailwindcss
+
+---
+
+# ⚙️ Environment Variables
+
+Create a `.env` file in the root folder and add:
+
 
 ## Tools
 
@@ -141,3 +134,4 @@ npm run dev
 ```
 
 ---
+

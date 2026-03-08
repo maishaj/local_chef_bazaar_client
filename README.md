@@ -1,59 +1,169 @@
-# 👨‍🍳 LocalChefBazaar – Marketplace for Local Home-Cooked Meals
+# 🍲 LocalChefBazaar – Client
 
-**LocalChefBazaar** is a modern MERN stack platform that connects home cooks with people looking for fresh, homemade food. The platform empowers local chefs to earn from their kitchens while providing customers with access to healthy, affordable meals with real-time tracking and secure payments.
+A modern **full-stack MERN marketplace platform** that connects **local home chefs with customers** looking for fresh, homemade meals.
 
-🔗 **[Live Site URL](https://local-chef-bazaar-27127.web.app/)**
-📂 **[Client Repository](https://github.com/maishaj/local_chef_bazaar_client)**
-📂 **[Server Repository](https://github.com/maishaj/local_chef_bazaar_server)**
+Customers can browse meals, place orders, leave reviews, and track order status, while chefs can manage meals and handle orders through an intuitive dashboard.
 
----
-
-## 🚀 Key Features
-
-- **Role-Based Access Control (RBAC):** Tailored interfaces and specific permissions for **Admins**, **Chefs**, and **Normal Users**.
-- **Dynamic Meal Management:** Chefs can upload menus, manage food items (ingredients, price, delivery area), and handle customer orders.
-- **Secure Ordering & Payments:** Integrated **Stripe** payment functionality for orders, with status tracking from "Pending" to "Delivered."
-- **Interactive Marketplace:** Public meals page with price sorting, detailed meal insights, and chef experience details.
-- **Engagement System:** Users can submit reviews with ratings and maintain a personalized "Favorite Meals" collection.
-- **Admin Oversight:** Centralized dashboard to manage user roles, approve chef requests, and monitor platform statistics via **Recharts**.
-- **Responsive & Animated UI:** A mobile-optimized design featuring smooth animations powered by **Framer Motion**.
+The project focuses on **supporting local chefs, promoting healthy food, and creating a transparent food marketplace.**
 
 ---
 
-## 🛠️ Technologies Used
+# 🔗 Project Links
 
-| Layer              | Technology                                              |
-| :----------------- | :------------------------------------------------------ |
-| **Frontend**       | React.js, React Router, Tailwind CSS, Framer Motion     |
-| **Backend**        | Node.js, Express.js, JWT (JSON Web Token)               |
-| **Database**       | MongoDB                                                 |
-| **Authentication** | Firebase Authentication (Email/Password & Google Login) |
-| **Payments**       | Stripe API                                              |
-| **Hosting**        | Firebase (Frontend) & Vercel (Backend)                  |
+- **Live Site:** https://local-chef-bazaar-27127.web.app
+- **Client Repository:** https://github.com/maishaj/local_chef_bazaar_client
+- **Server Repository:** https://github.com/maishaj/local_chef_bazaar_server
 
 ---
 
-## 🧱 Layout Structure
+# ✨ Key Features
 
-### 🌍 Public Routes (Accessible to everyone)
+## 👤 Authentication
 
-- **Home Page:** Animated Hero section, Daily Meals (6 most recent), Customer Reviews, and a Newsletter section.
-- **Meals Page:** Full menu display with sorting capabilities; "See Details" is restricted to logged-in users.
-- **Authentication:** Secure Login and Registration with role-based defaults and password validation.
+- Email & Password login
+- Google authentication
+- Firebase authentication integration
+- Protected routes for authenticated users
 
-### 🛡️ Private Dashboards (Logged-in users only)
+## 🍽️ Meal Marketplace
 
-- **User:** Profile management, My Orders, My Reviews, and Favorite Meals.
-- **Chef:** Create Meal (image upload required), My Meals management, and Order Request handling.
-- **Admin:** Manage Users (Make Fraud action), Request Approvals (Chef/Admin requests), and Platform Statistics.
+- Browse meals created by local chefs
+- View detailed meal information
+- Search and filter meals
+- Dynamic meal listings
+
+## 🛒 Order System
+
+- Add meals to cart
+- Secure checkout process
+- Order tracking
+- Order history for users
+
+## ⭐ Reviews & Ratings
+
+- Customers can leave reviews
+- Rating system for meals
+- Helps other users make informed decisions
+
+## 👨‍🍳 Chef Dashboard
+
+- Add new meals
+- Update meal information
+- Delete meals
+- Manage customer orders
+
+## 🛠 Admin Dashboard
+
+- Manage platform users
+- Handle role requests
+- Monitor platform activity
+- Manage meals and orders
+
+## 📊 Role Based System
+
+Three types of roles exist in the system:
+
+- **Customer**
+- **Chef**
+- **Admin**
+
+Each role has **different permissions and dashboard features.**
 
 ---
 
-## 🔑 Demo Admin Credentials
+# 🛠 Tech Stack
 
-To explore the Admin, use the following:
+## Frontend
 
-> **Email:** `samiha@gmail.com`  
-> **Password:** `Samiha@123`
+- React.js
+- React Router
+- Tailwind CSS
+- DaisyUI
+- Axios
+- Firebase Authentication
+
+## Backend
+
+- Node.js
+- Express.js
+- MongoDB
+- JWT Authentication
+
+## Tools
+
+- Firebase
+- Vercel
+- Git & GitHub
+
+---
+
+# 📁 Project Structure
+
+```
+src
+ ┣ components
+ ┣ pages
+ ┣ routes
+ ┣ hooks
+ ┣ layouts
+ ┣ context
+ ┣ firebase
+ ┗ utils
+```
+
+---
+
+# ⚙️ Environment Variables
+
+Create a `.env` file in the root folder and add the following:
+
+```
+VITE_apiKey=your_key
+VITE_authDomain=your_domain 
+VITE_projectId=your_project_id
+VITE_storageBucket=your_bucket
+VITE_messagingSenderId=your_sender_id
+VITE_appId=your_app_id
+VITE_image_host_key=your_image_host_id
+
+```
+
+---
+
+# 🚀 Installation & Setup
+
+### 1️⃣ Clone the repository
+
+```bash
+git clone https://github.com/maishaj/local_chef_bazaar_client.git
+```
+
+### 2️⃣ Navigate to project folder
+
+```bash
+cd local_chef_bazaar_client
+```
+
+### 3️⃣ Install dependencies
+
+```bash
+npm install
+```
+
+### 4️⃣ Run the project
+
+```bash
+npm run dev
+```
+
+---
+
+# 📌 Future Improvements
+
+- Real-time order tracking
+- Mobile UI improvements
+- Push notifications
+- Chef analytics dashboard
+- Integrated payment gateway
 
 ---

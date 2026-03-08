@@ -77,11 +77,6 @@ Main dependencies used in this project:
 
 ---
 
-# ⚙️ Environment Variables
-
-Create a `.env` file in the root folder and add:
-
-
 ## Tools
 
 - Firebase

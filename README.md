@@ -97,22 +97,6 @@ Each role has **different permissions and dashboard features.**
 
 ---
 
-# 📁 Project Structure
-
-```
-src
- ┣ components
- ┣ pages
- ┣ routes
- ┣ hooks
- ┣ layouts
- ┣ context
- ┣ firebase
- ┗ utils
-```
-
----
-
 # ⚙️ Environment Variables
 
 Create a `.env` file in the root folder and add the following:
@@ -155,15 +139,5 @@ npm install
 ```bash
 npm run dev
 ```
-
----
-
-# 📌 Future Improvements
-
-- Real-time order tracking
-- Mobile UI improvements
-- Push notifications
-- Chef analytics dashboard
-- Integrated payment gateway
 
 ---

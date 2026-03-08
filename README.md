@@ -148,6 +148,8 @@ npm run dev
 
 ### 📄 Meal Details
 ![Meal Details](https://github.com/maishaj/local_chef_bazaar_client/blob/main/src/screenshots/chefbazaar21.png)
+![Meal Details](https://github.com/maishaj/local_chef_bazaar_client/blob/main/src/screenshots/chefbazaar22.png)
+![Meal Details](https://github.com/maishaj/local_chef_bazaar_client/blob/main/src/screenshots/chefbazaar23.png)
 
 ### 📄 About Page
 ![About Page](https://github.com/maishaj/local_chef_bazaar_client/blob/main/src/screenshots/chefbazaar6.png)

@@ -135,3 +135,54 @@ npm run dev
 
 ---
 
+## 📸 Project Screenshots
+
+### 🏠 Home Page
+![Home](https://github.com/maishaj/local_chef_bazaar_client/blob/main/src/screenshots/chefbazaar1.png)
+![Home](https://github.com/maishaj/local_chef_bazaar_client/blob/main/src/screenshots/chefbazaar2.png)
+![Home](https://github.com/maishaj/local_chef_bazaar_client/blob/main/src/screenshots/chefbazaar3.png)
+
+### 🍽️ Meals Page
+![Meals](https://github.com/maishaj/local_chef_bazaar_client/blob/main/src/screenshots/chefbazaar4.png)
+![Meals](https://github.com/maishaj/local_chef_bazaar_client/blob/main/src/screenshots/chefbazaar5.png)
+
+### 📄 Meal Details
+![Meal Details](https://github.com/maishaj/local_chef_bazaar_client/blob/main/src/screenshots/chefbazaar21.png)
+
+### 📄 About Page
+![About Page](https://github.com/maishaj/local_chef_bazaar_client/blob/main/src/screenshots/chefbazaar6.png)
+
+### 📄 Terms and Conditions
+![Terms and Conditions](https://github.com/maishaj/local_chef_bazaar_client/blob/main/src/screenshots/chefbazaar7.png)
+
+### 🛒 Login Page
+![Login Page](https://github.com/maishaj/local_chef_bazaar_client/blob/main/src/screenshots/chefbazaar8.png)
+
+### 🛒 Contact Us
+![Contact Us](https://github.com/maishaj/local_chef_bazaar_client/blob/main/src/screenshots/chefbazaar9.png)
+
+### 🛒 My Profile 
+![My Profile ](https://github.com/maishaj/local_chef_bazaar_client/blob/main/src/screenshots/chefbazaar10.png)
+
+### 👤 User Dashboard [My Orders]
+![User Dashboard](https://github.com/maishaj/local_chef_bazaar_client/blob/main/src/screenshots/chefbazaar11.png)
+
+### 👤 User Dashboard [My Orders]
+![User Dashboard](https://github.com/maishaj/local_chef_bazaar_client/blob/main/src/screenshots/chefbazaar11.png)
+
+### 👤 Chef Dashboard [Create Meals]
+![My Meals](https://github.com/maishaj/local_chef_bazaar_client/blob/main/src/screenshots/chefbazaar12.png)
+
+### 👤 Chef Dashboard [My Meals]
+![My Meals](https://github.com/maishaj/local_chef_bazaar_client/blob/main/src/screenshots/chefbazaar13.png)
+
+### 👤 Chef Dashboard [Order Requests]
+![Order Requests](https://github.com/maishaj/local_chef_bazaar_client/blob/main/src/screenshots/chefbazaar14.png)
+
+### 🛠 Admin Dashboard [Manage Users]
+![Admin Dashboard](https://github.com/maishaj/local_chef_bazaar_client/blob/main/src/screenshots/chefbazaar15.png)
+
+### 🛠 Admin Dashboard [Platform Statistics]
+![Admin Dashboard](https://github.com/maishaj/local_chef_bazaar_client/blob/main/src/screenshots/chefbazaar16.png)
+
+
